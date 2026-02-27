@@ -1,0 +1,1 @@
+<?php /**PATH /var/www/html/ppid/resources/views/admin/index.blade.php ENDPATH**/ ?>

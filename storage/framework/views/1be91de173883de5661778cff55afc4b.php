@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>PPID Admin - Dashboard Admin PPID </title>
+    <link rel="icon" type="image/x-icon" href="<?php echo e(asset('../be/src/assets/img/face.png')); ?>"/>
+    <link href="<?php echo e(asset('../be/layouts/modern-dark-menu/css/light/loader.css')); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('../be/layouts/modern-dark-menu/css/dark/loader.css')); ?>" rel="stylesheet" type="text/css" />
+    <script src="<?php echo e(asset('../be/layouts/modern-dark-menu/loader.js')); ?>"></script>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="<?php echo e(asset('../be/src/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('../be/layouts/modern-dark-menu/css/light/plugins.css')); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('../be/layouts/modern-dark-menu/css/dark/plugins.css')); ?>" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="<?php echo e(asset('../be/src/plugins/src/apex/apexcharts.css')); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('../be/src/assets/css/light/dashboard/dash_1.css')); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo e(asset('../be/src/assets/css/dark/dashboard/dash_1.css')); ?>" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+
+    <!-- BEGIN PAGE LEVEL CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/src/table/datatable/datatables.css')); ?>">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/css/light/table/datatable/dt-global_style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/css/light/table/datatable/custom_dt_custom.css')); ?>">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/css/dark/table/datatable/dt-global_style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/css/dark/table/datatable/custom_dt_custom.css')); ?>">
+
+    <!-- END PAGE LEVEL CUSTOM STYLES -->
+
+</head>
+<body class="layout-boxed">
+    <!-- BEGIN LOADER -->
+    <div id="load_screen"> <div class="loader"> <div class="loader-content">
+        <div class="spinner-grow align-self-center"></div>
+    </div></div></div>
+    <!--  END LOADER -->
+
+    <?php echo $__env->make('be.partials.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <?php echo $__env->make('be.partials.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <?php echo $__env->yieldContent('content'); ?>
+
+            <?php echo $__env->make('be.partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        </div>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="<?php echo e(asset('../be/src/plugins/src/global/vendors.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('../be/src/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('../be/src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('../be/src/plugins/src/mousetrap/mousetrap.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('../be/src/plugins/src/waves/waves.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('../be/layouts/modern-dark-menu/app.js')); ?>"></script>
+
+    <script src="<?php echo e(asset('../be/src/assets/js/custom.js')); ?>"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="<?php echo e(asset('../be/src/plugins/src/apex/apexcharts.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('../be/src/assets/js/dashboard/dash_1.js')); ?>"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="<?php echo e(asset('../be/src/plugins/src/table/datatable/datatables.js')); ?>"></script>
+    <script>
+        // var e;
+        c3 = $('#style-3').DataTable({
+            "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+        "<'table-responsive'tr>" +
+        "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+               "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [5, 10, 20, 50],
+            "pageLength": 10
+        });
+
+        multiCheck(c3);
+    </script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+</body>
+</html><?php /**PATH /var/www/html/ppid/resources/views/be/layouts/app.blade.php ENDPATH**/ ?>

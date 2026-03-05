@@ -228,32 +228,36 @@
 
             </div>
 
-            <div class="col-lg-6">
-              <form action="forms/contact.php" method="post" class="php-email-form">
+            <div class="col-lg-6" style="background-color:#F0F8FF;border-radius:5px;">
+              <?php if(session('success')): ?>
+                <div class="alert alert-success">
+                  <?php echo e(session('success')); ?>
+
+                </div>
+              <?php endif; ?>
+              <form action="<?php echo e(route('pesan.store')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
+
                 <div class="row gy-4">
-                  <input type="hidden" name="csrf_token" value="UNIQUE_SECURE_TOKEN" />
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Nama Anda" required="">
-                    <p style="color:red; font-size:12px;">* Nama Wajib Di Isi</p>
-                  </div>
 
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Email Anda" required="">
-                    <p style="color:red; font-size:12px;">* Email Wajib Di Isi</p>
-                  </div>
+                <div class="col-md-6" style="padding-top:15px;">
+                <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
+                <p style="color:red; font-size:12px;">* Nama Wajib Di Isi</p>
+                </div>
 
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required=""></textarea>
-                    <p style="color:red; font-size:12px;">* Pesan Wajib Di Isi</p>
-                  </div>
+                <div class="col-md-6" style="padding-top:15px;">
+                <input type="email" class="form-control" name="email" placeholder="Email Anda" required>
+                <p style="color:red; font-size:12px;">* Email Wajib Di Isi</p>
+                </div>
 
-                  <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="col-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required></textarea>
+                <p style="color:red; font-size:12px;">* Pesan Wajib Di Isi</p>
+                </div>
 
-                    <button type="submit">Kirim Pesan</button>
-                  </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                </div>
 
                 </div>
               </form>

@@ -266,7 +266,7 @@
 
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6" style="background-color:#F0F8FF;border-radius:5px;">
               @if(session('success'))
                 <div class="alert alert-success">
                   {{ session('success') }}
@@ -277,12 +277,12 @@
 
                 <div class="row gy-4">
 
-                <div class="col-md-6">
+                <div class="col-md-6" style="padding-top:15px;">
                 <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
                 <p style="color:red; font-size:12px;">* Nama Wajib Di Isi</p>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6" style="padding-top:15px;">
                 <input type="email" class="form-control" name="email" placeholder="Email Anda" required>
                 <p style="color:red; font-size:12px;">* Email Wajib Di Isi</p>
                 </div>
@@ -293,7 +293,7 @@
                 </div>
 
                 <div class="col-12 text-center">
-                <button type="submit">Kirim Pesan</button>
+                  <button type="submit" class="btn btn-primary">Kirim Pesan</button>
                 </div>
 
                 </div>

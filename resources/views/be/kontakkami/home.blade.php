@@ -39,9 +39,9 @@
                                             @foreach($pesan as $p)
                                             <tr>
                                                 <td class="checkbox-column text-center"> {{ $loop->iteration }} </td>
-                                                <td>{{ $p->name }}</td>
+                                                <td>{{ $p->nama }}</td>
                                                 <td>{{ $p->email }}</td>
-                                                <td>{{ $p->message }}</td>
+                                                <td>{{ $p->pesan }}</td>
                                                 <td>{{ $p->created_at->format('d-m-Y') }}</td>
                                                 <td class="text-center">
                                                     <ul class="table-controls d-flex justify-content-center" style="list-style:none; padding:0; margin:0;">

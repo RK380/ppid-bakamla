@@ -268,9 +268,10 @@
 
             <div class="col-lg-6" style="background-color:#F0F8FF;border-radius:5px;">
               @if(session('success'))
-                <div class="alert alert-success">
-                  {{ session('success') }}
-                </div>
+              <div class="alert alert-success alert-dismissible fade show">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>
               @endif
               <form action="{{ route('pesan.store') }}" method="POST">
                 @csrf
@@ -278,7 +279,7 @@
                 <div class="row gy-4">
 
                 <div class="col-md-6" style="padding-top:15px;">
-                <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
+                <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
                 <p style="color:red; font-size:12px;">* Nama Wajib Di Isi</p>
                 </div>
 
@@ -288,7 +289,7 @@
                 </div>
 
                 <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required></textarea>
+                <textarea class="form-control" name="pesan" rows="6" placeholder="Pesan Anda" required></textarea>
                 <p style="color:red; font-size:12px;">* Pesan Wajib Di Isi</p>
                 </div>
 

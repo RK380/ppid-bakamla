@@ -15,7 +15,7 @@ class KontakKamiController extends Controller
         $pesan = KontakKami::latest()->get();
         return view('be.kontakkami.home', [
             'title' => 'Pesan Masuk Kontak Kami',
-            'klasifikasis' => $pesan
+            'pesan' => $pesan
         ]);
     }
 
@@ -33,18 +33,18 @@ class KontakKamiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'name' => 'required|string|max:255',
+        'nama' => 'required|string|max:255',
         'email' => 'required|email',
-        'message' => 'required|string'
-    ]);
+        'pesan' => 'required|string'
+        ]);
 
-    KontakKami::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'message' => $request->message
-    ]);
+        KontakKami::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'pesan' => $request->pesan
+        ]);
 
-    return back()->with('success','Pesan berhasil dikirim');
+        return redirect()->back()->with('success','Pesan Anda berhasil dikirim');
     }
 
     /**

@@ -10,16 +10,16 @@
                     <div class="page-meta">
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/admin">Dashboard Admin</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">SOP</li>
+                                <li class="breadcrumb-item"><a href="/admin">Master Data</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Pesan Kontak Kami</li>
                             </ol>
                         </nav>
                     </div>
                     <!-- /BREADCRUMB -->
 
-                    <div class="seperator-header">
-                        <a href="{{ route('admin.sop.create') }}" class="btn btn-primary _effect--ripple waves-effect waves-light" type="button" id="button-addon1">Tambah Standar Layanan Operasional</a>
-                    </div>
+                    {{-- <div class="seperator-header">
+                        <a href="{{ route('admin.klasifikasi.create') }}" class="btn btn-primary _effect--ripple waves-effect waves-light" type="button" id="button-addon1">Tambah Klasifikasi</a>
+                    </div> --}}
     
                     <div class="row layout-spacing">
                         <div class="col-lg-12">
@@ -29,29 +29,30 @@
                                         <thead>
                                             <tr>
                                                 <th class="checkbox-column text-center"> Record Id </th>
-                                                <th class="text-center">Judul</th>
-                                                <th>Waktu</th>
-                                                <th class="text-center">Dokumen</th>
+                                                <th class="text-center">Nama Pengirim Pesan</th>
+                                                <th class="text-center">Email Pengirim Pesan</th>
+                                                <th class="text-center">Pesan</th>
                                                 <th class="text-center dt-no-sorting">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($datas as $sop)
+                                            @foreach($pesan as $p)
                                             <tr>
                                                 <td class="checkbox-column text-center"> {{ $loop->iteration }} </td>
-                                                <td>{{ $sop->judul }}</td>
-                                                <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $sop->created_at)->isoFormat('D MMMM Y')}}</td>
-                                                <td><span class="badge bg-danger">{{ $ext = pathinfo(storage_path().$sop->file, PATHINFO_EXTENSION); }}</span></td>
+                                                <td>{{ $p->name }}</td>
+                                                <td>{{ $p->email }}</td>
+                                                <td>{{ $p->message }}</td>
+                                                <td>{{ $p->created_at->format('d-m-Y') }}</td>
                                                 <td class="text-center">
                                                     <ul class="table-controls d-flex justify-content-center" style="list-style:none; padding:0; margin:0;">
                                                         <li>
-                                                            <form action="{{ route('admin.sop.destroy', $sop->id) }}" 
+                                                            <form action="{{ route('admin.pesan.destroy', $p->id) }}" 
                                                                 method="POST" 
-                                                                onsubmit="return confirm('Yakin ingin menghapus sop ini?')" 
+                                                                onsubmit="return confirm('Yakin ingin menghapus klasifikasi ini?')" 
                                                                 style="display:inline;">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <a href="{{ route('admin.sop.edit', $sop->id) }}" 
+                                                                <a href="{{ route('admin.pesan.edit', $p->id) }}" 
                                                                     class="bs-tooltip" 
                                                                     data-bs-toggle="tooltip" 
                                                                     data-bs-placement="top" 

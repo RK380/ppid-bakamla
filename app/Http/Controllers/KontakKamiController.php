@@ -12,7 +12,11 @@ class KontakKamiController extends Controller
      */
     public function index()
     {
-        //
+        $pesan = KontakKami::latest()->get();
+        return view('be.kontakkami.home', [
+            'title' => 'Pesan Masuk Kontak Kami',
+            'klasifikasis' => $pesan
+        ]);
     }
 
     /**
@@ -28,7 +32,19 @@ class KontakKamiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'message' => 'required|string'
+    ]);
+
+    KontakKami::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'message' => $request->message
+    ]);
+
+    return back()->with('success','Pesan berhasil dikirim');
     }
 
     /**

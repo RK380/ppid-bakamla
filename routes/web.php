@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\KlasifikasiController;
+use App\Http\Controllers\KontakKamiController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SopController;
@@ -61,6 +62,9 @@ Route::get('/faq', [HalamanController::class, 'faq']);
 //Unit Kerja
 Route::get('/unitkerja', [HalamanController::class, 'unitkerja']);
 
+//Kirim Pesan
+Route::post('/kirim-pesan', [KontakKamiController::class, 'store'])->name('pesan.store');
+
 //Login
 Route::get('/sesi', [SessionController::class,'index'])->middleware(isTamu::class);
 Route::post('/sesi/login', [SessionController::class,'login'])->middleware(isTamu::class);
@@ -99,6 +103,9 @@ Route::middleware(isLogin::class)->group(function () {
     Route::get('/sop/edit/{id}', [SopController::class,'edit'])->name('admin.sop.edit');
     Route::put('/sop/update/{id}', [SopController::class,'update'])->name('admin.sop.update');
     // });
+
+    // BE Pesan Masuk
+    Route::get('/pesan', [KontakKamiController::class, 'index'])->name('admin.pesan');
 });
 
 Route::get('refresh-captcha', function () {

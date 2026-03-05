@@ -50,9 +50,15 @@ class KontakKamiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(KontakKami $kontakKami)
+    public function show(KontakKami $id)
     {
-        //
+        $pesan = KontakKami::findOrFail($id);
+
+        $pesan->update([
+            'is_read' => true
+        ]);
+
+        return view('be.kontakkami.show', compact('pesan'));
     }
 
     /**
@@ -74,8 +80,11 @@ class KontakKamiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KontakKami $kontakKami)
+    public function destroy(KontakKami $id)
     {
-        //
+        KontakKami::findOrFail($id)->delete();
+
+        return redirect()->route('pesan.index')
+        ->with('success','Pesan berhasil dihapus');
     }
 }

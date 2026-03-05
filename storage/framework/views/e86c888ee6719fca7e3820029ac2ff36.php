@@ -54,6 +54,9 @@
                             <li class="<?php if(request()->routeIs('admin.sop')): ?> active <?php endif; ?>">
                                 <a href="<?php echo e(route('admin.sop')); ?>"> SOP </a>
                             </li>
+                            <li class="<?php if(request()->routeIs('admin.pesan')): ?> active <?php endif; ?>">
+                                <a href="<?php echo e(route('admin.pesan')); ?>"> Pesan Masuk </a>
+                            </li>
                         </ul>
                     </li>
 

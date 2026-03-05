@@ -106,6 +106,8 @@ Route::middleware(isLogin::class)->group(function () {
 
     // BE Pesan Masuk
     Route::get('/pesan', [KontakKamiController::class, 'index'])->name('admin.pesan');
+    Route::get('/pesan/{id}', [KontakKamiController::class,'show'])->name('admin.pesan.show');
+    Route::delete('/pesan/{id}', [KontakKamiController::class,'destroy'])->name('admin.pesan.destroy');
 });
 
 Route::get('refresh-captcha', function () {

@@ -54,6 +54,9 @@
                             <li class="@if(request()->routeIs('admin.sop')) active @endif">
                                 <a href="{{ route('admin.sop') }}"> SOP </a>
                             </li>
+                            <li class="@if(request()->routeIs('admin.pesan')) active @endif">
+                                <a href="{{ route('admin.pesan') }}"> Pesan Masuk </a>
+                            </li>
                         </ul>
                     </li>
 

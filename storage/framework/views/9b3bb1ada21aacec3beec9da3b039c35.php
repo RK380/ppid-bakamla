@@ -230,10 +230,17 @@
 
             <div class="col-lg-6" style="background-color:#F0F8FF;border-radius:5px;">
               <?php if(session('success')): ?>
-                <div class="alert alert-success">
-                  <?php echo e(session('success')); ?>
+              <div class="toast-container position-fixed top-0 end-0 p-3">
+                <div id="liveToast" class="toast show align-items-center text-bg-success border-0">
+                  <div class="d-flex">
+                    <div class="toast-body">
+                      <?php echo e(session('success')); ?>
 
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                  </div>
                 </div>
+              </div>
               <?php endif; ?>
               <form action="<?php echo e(route('pesan.store')); ?>" method="POST">
                 <?php echo csrf_field(); ?>

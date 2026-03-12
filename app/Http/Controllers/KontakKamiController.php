@@ -84,7 +84,7 @@ class KontakKamiController extends Controller
     {
         KontakKami::findOrFail($id)->delete();
 
-        return redirect()->route('pesan.index')
+        return redirect()->route('admin.pesan')
         ->with('success','Pesan berhasil dihapus');
     }
 }

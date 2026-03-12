@@ -9,7 +9,7 @@
                     <div class="page-meta">
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/admin">Master Data</a></li>
+                                <li class="breadcrumb-item"><a href="/admin">Data</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Pesan Kontak Kami</li>
                             </ol>
                         </nav>
@@ -29,6 +29,8 @@
                                                 <th class="text-center">Nama Pengirim Pesan</th>
                                                 <th class="text-center">Email Pengirim Pesan</th>
                                                 <th class="text-center">Pesan</th>
+                                                <th class="text-center">Dibuat Tanggal</th>
+                                                <th class="text-center">Status</th>
                                                 <th class="text-center dt-no-sorting">Action</th>
                                             </tr>
                                         </thead>
@@ -38,29 +40,28 @@
                                                 <td class="checkbox-column text-center"> <?php echo e($loop->iteration); ?> </td>
                                                 <td><?php echo e($p->nama); ?></td>
                                                 <td><?php echo e($p->email); ?></td>
-                                                <td><?php echo e($p->pesan); ?></td>
+                                                <td><?php echo e(Str::limit($p->message, 50)); ?></td>
                                                 <td><?php echo e($p->created_at->format('d-m-Y')); ?></td>
+                                                <td>
+                                                    <?php if($p->is_read): ?>
+                                                        <span class="badge bg-success">Sudah Dibaca</span>
+                                                    <?php else: ?>
+                                                        <span class="badge bg-danger">Pesan Baru</span>
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td class="text-center">
                                                     <ul class="table-controls d-flex justify-content-center" style="list-style:none; padding:0; margin:0;">
                                                         <li>
+                                                            <a href="<?php echo e(route('admin.pesan.show', $p->id)); ?>" class="btn btn-primary btn-sm">
+                                                                Lihat
+                                                            </a>
                                                             <form action="<?php echo e(route('admin.pesan.destroy', $p->id)); ?>" 
                                                                 method="POST" 
                                                                 onsubmit="return confirm('Yakin ingin menghapus klasifikasi ini?')" 
                                                                 style="display:inline;">
                                                                 <?php echo csrf_field(); ?>
                                                                 <?php echo method_field('DELETE'); ?>
-                                                                <a href="<?php echo e(route('admin.pesan.edit', $p->id)); ?>" 
-                                                                    class="bs-tooltip" 
-                                                                    data-bs-toggle="tooltip" 
-                                                                    data-bs-placement="top" 
-                                                                    title="Edit">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
-                                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-                                                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                                                            class="feather feather-edit-2 p-1 br-8 mb-1">
-                                                                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                                                                        </svg>
-                                                                </a>
+                                                                
                                                                 <button type="submit" 
                                                                         class="btn btn-link p-0 m-0 align-baseline bs-tooltip" 
                                                                         data-bs-toggle="tooltip" 

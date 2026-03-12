@@ -12,6 +12,7 @@ class KontakKami extends Model
     protected $fillable = [
         'nama',
         'email',
-        'pesan'
+        'pesan',
+        'is_read'
     ];
 }

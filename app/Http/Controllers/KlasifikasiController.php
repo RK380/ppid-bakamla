@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klasifikasi;
-use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 
 class KlasifikasiController extends Controller
@@ -43,12 +42,6 @@ class KlasifikasiController extends Controller
         $klasifikasi->save();
         return redirect()->route('admin.klasifikasi');
 
-        // if($klasifikasi){
-        //     Alert::success('Berhasil','Klasifikasi berhasil di tambahkan');
-        // } else {
-        //     Alert::error('Gagal','Klasifikasi gagal di tambahkan');
-        //     return redirect()->route('admin.klasifikasi');
-        // }
     }
 
     /**
@@ -86,13 +79,7 @@ class KlasifikasiController extends Controller
 
         $klasifikasi->update($data_klasifikasi);
         return redirect()->route('admin.klasifikasi');
-        
-        // if($klasifikasi){
-        //     Alert::success('Berhasil','Klasifikasi berhasil di perbarui');
-        // } else {
-        //     Alert::error('Gagal','Klasifikasi gagal di perbarui');
-        //     return redirect()->route('admin.klasifikasi');
-        // }
+    
     }
 
     /**
@@ -104,11 +91,5 @@ class KlasifikasiController extends Controller
         $klasifikasi = Klasifikasi::where('id', $klasifikasi_data->id)->delete();
         return redirect()->route('admin.klasifikasi');
 
-        // if($klasifikasi){
-        //     Alert::success('Berhasil','Klasifikasi berhasil di hapus');
-        // } else {
-        //     Alert::error('Gagal','Klasifikasi gagal di hapus');
-        //     return redirect()->route('admin.klasifikasi');
-        // }
     }
 }

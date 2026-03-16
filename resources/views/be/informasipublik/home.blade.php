@@ -42,13 +42,22 @@
                                             <tr>
                                                 <td class="checkbox-column text-center"> {{ $loop->iteration }} </td>
                                                 <td>{{ $informasi->klasifikasi->klasifikasi }}</td>
-                                                <td>{{ $informasi->judul }}</td>
+                                                <td>{!! Str::limit(strip_tags($informasi->judul), 10, '...') !!}</td>
                                                 <td>{!! Str::limit(strip_tags($informasi->ringkasan), 20, '...') !!}</td>
                                                 <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $informasi->created_at)->isoFormat('D MMMM Y')}}</td>
                                                 <td><span class="badge bg-danger">{{ $ext = pathinfo(storage_path().$informasi->file, PATHINFO_EXTENSION); }}</span></td>
                                                 <td class="text-center">
                                                     <ul class="table-controls d-flex justify-content-center" style="list-style:none; padding:0; margin:0;">
                                                         <li>
+                                                            <a href="{{ route('admin.informasipublik.show', $informasi->id) }}" class="bs-tooltip" 
+                                                                    data-bs-toggle="tooltip" 
+                                                                    data-bs-placement="top" 
+                                                                    title="Lihat">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="main-grid-item-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                                <circle cx="12" cy="12" r="3" />
+                                                                </svg>
+                                                            </a>
                                                             <form action="{{ route('admin.informasipublik.destroy', $informasi->id) }}" 
                                                                 method="POST" 
                                                                 onsubmit="return confirm('Yakin ingin menghapus informasi ini?')" 
@@ -63,7 +72,7 @@
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
                                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" 
                                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                                                            class="feather feather-edit-2 p-1 br-8 mb-1">
+                                                                            class="feather feather-edit-2 w-6 h-6 text-warning">
                                                                             <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
                                                                         </svg>
                                                                 </a>
@@ -76,7 +85,7 @@
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
                                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" 
                                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                                                        class="feather feather-trash p-1 br-8 mb-1 text-danger">
+                                                                        class="feather feather-trash w-6 h-6 text-danger">
                                                                         <polyline points="3 6 5 6 21 6"></polyline>
                                                                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6
                                                                                 m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -87,7 +96,6 @@
                                                         </li>
                                                     </ul>
                                                 </td>
-
                                             </tr>
                                             @endforeach
                                         </tbody>

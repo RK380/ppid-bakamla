@@ -1,0 +1,1 @@
+<?php /**PATH /var/www/html/ppid/resources/views/be/informasipublik/show.blade.php ENDPATH**/ ?>

@@ -25,12 +25,8 @@
 
     <!-- BEGIN PAGE LEVEL CUSTOM STYLES -->
     <link rel="stylesheet" type="text/css" href="{{ asset('../be/src/plugins/src/table/datatable/datatables.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('../be/src/plugins/css/light/table/datatable/dt-global_style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('../be/src/plugins/css/light/table/datatable/custom_dt_custom.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('../be/src/plugins/css/dark/table/datatable/dt-global_style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('../be/src/plugins/css/dark/table/datatable/custom_dt_custom.css')}}">
 
     <!-- END PAGE LEVEL CUSTOM STYLES -->
 
@@ -82,8 +78,7 @@
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="{{ asset('../be/src/plugins/src/table/datatable/datatables.js')}}"></script>
     <script>
-        // var e;
-        c3 = $('#style-3').DataTable({
+        $('#zero-config').DataTable({
             "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
         "<'table-responsive'tr>" +
         "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
@@ -95,11 +90,9 @@
                "sLengthMenu": "Results :  _MENU_",
             },
             "stripeClasses": [],
-            "lengthMenu": [5, 10, 20, 50],
-            "pageLength": 10
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 10 
         });
-
-        multiCheck(c3);
     </script>
     <!-- END PAGE LEVEL SCRIPTS -->
 

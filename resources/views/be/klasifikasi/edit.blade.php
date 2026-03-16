@@ -1,8 +1,8 @@
 @extends('be.layouts.app')
 @section('content')
-<div class="container">
-                <div class="container">
+<div class="layout-px-spacing">
 
+                <div class="middle-content container-xxl p-0">
                     <!-- BREADCRUMB -->
                     <div class="page-meta">
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
@@ -15,7 +15,6 @@
                     <!-- /BREADCRUMB -->
 
                     <div class="row">
-
                         <div id="flLoginForm" class="col-lg-12 layout-spacing">
                             <div class="statbox widget box box-shadow">
                                 <div class="widget-content widget-content-area" style="padding: 20px;position: relative;background-color: #0e1726;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;border: none;">
@@ -34,9 +33,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
 </div>
 @endsection

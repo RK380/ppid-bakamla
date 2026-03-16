@@ -35,19 +35,6 @@ class InformasiPublikController extends Controller
         ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
     }
 
-    // public function viewklasi($id)
-    // {
-    //     $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-    //     $klasi = Klasifikasi::findorfail($id);
-    //     // $datas = Klasifikasi::orderBy('created_at', 'desc')->get();
-    //     return view('viewklasi', [
-    //         'title' => 'Informasi Publik',
-    //         'klasifikasis' => $klasifikasis,
-    //         'klasi' => $klasi,      
-    //         // 'profilkantor' => ProfilKantor::first()
-    //     ]);
-    // }
-
     public function unduh($id)
     {
         $data = InformasiPublik::findorfail($id);
@@ -123,16 +110,6 @@ class InformasiPublikController extends Controller
         $file->move('uploads/infopub/',$newfile);
         return redirect()->route('admin.informasipublik');
 
-        // if($create){
-        //     Alert::success('Success','Informasi Berhasil di Upload');
-        //     if (Auth::user()->hasRole('admin')) {
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // } else {
-        //     Alert::error('Failed', 'Informasi Gagal di Upload');
-        //     return redirect()->route('petugas.informasipublik');
-        // }
     }
 
     /**
@@ -142,7 +119,7 @@ class InformasiPublikController extends Controller
     {
         $data = InformasiPublik::findorfail($id);
         // return dd($data);
-        return view('be.informasipublik.view',[
+        return view('be.informasipublik.show',[
             "title" => "Informasi Publik",
             "data" => $data
         ]);
@@ -159,19 +136,7 @@ class InformasiPublikController extends Controller
             "data" => $data,
             "klasifikasis" => Klasifikasi::get()
         ]);
-        // if (Auth::user()->hasRole('admin')) {
-        // } else {
-        //     if ($data->user_id == Auth::user()->id) {
-        //         return view('be.informasipublik.edit', [
-        //             "title" => "Ubah Data Informasi Publik",
-        //             "data" => $data,
-        //             "klasifikasis" => Klasifikasi::get()
-        //         ]);
-        //     } else {
-        //         Alert::error('Maaf','Anda tidak mempunyai akses ke halaman ini.');
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // }
+       
     }
 
     /**
@@ -219,20 +184,6 @@ class InformasiPublikController extends Controller
         $data->update($data_array);
         return redirect()->route('admin.informasipublik');
 
-        // if($data){
-        //     Alert::success('Sukses','Informasi Berhasil di Update');
-        //     if (Auth::user()->hasRole('admin')) {
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // } else {
-        //     Alert::error('Gagal', 'Informasi Gagal di Update');
-        //     if (Auth::user()->hasRole('admin')) {
-        //         return redirect()->route('admin.informasipublik');
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // }
     }
 
     /**
@@ -249,19 +200,5 @@ class InformasiPublikController extends Controller
         $data = InformasiPublik::where('id',$data->id)->delete();
         return redirect()->route('admin.informasipublik');
 
-        // if($data){
-        //     Alert::success('Success','Informasi Berhasil di Hapus');
-        //     if (Auth::user()->hasRole('admin')) {
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // } else {
-        //     Alert::error('Failed', 'Informasi Gagal di Hapus');
-        //     if (Auth::user()->hasRole('admin')) {
-        //         return redirect()->route('admin.informasipublik');
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // }
     }
 }

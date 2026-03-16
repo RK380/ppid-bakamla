@@ -47,16 +47,6 @@ class SopController extends Controller
         ]);
     }
 
-    // public function download($id)
-    // {
-    //     $data = Sop::findorfail($id);
-    //     $mypath = public_path().'/'.$data->file;
-    //     // dd($mypath);
-
-    //     $encrypt_name = time().$data->judul;
-    //     return response()->download($mypath, $encrypt_name);
-    // }
-
     /**
      * Display a listing of the resource.
      */
@@ -128,19 +118,6 @@ class SopController extends Controller
             "title" => "Ubah Data Standar Layanan Operasional",
             "data" => $data,
         ]);
-        // if (Auth::user()->hasRole('admin')) {
-        // } else {
-        //     if ($data->user_id == Auth::user()->id) {
-        //         return view('be.informasipublik.edit', [
-        //             "title" => "Ubah Data Informasi Publik",
-        //             "data" => $data,
-        //             "klasifikasis" => Klasifikasi::get()
-        //         ]);
-        //     } else {
-        //         Alert::error('Maaf','Anda tidak mempunyai akses ke halaman ini.');
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // }
     }
 
     /**
@@ -181,20 +158,6 @@ class SopController extends Controller
         $data->update($data_array);
         return redirect()->route('admin.sop');
 
-        // if($data){
-        //     Alert::success('Sukses','Informasi Berhasil di Update');
-        //     if (Auth::user()->hasRole('admin')) {
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // } else {
-        //     Alert::error('Gagal', 'Informasi Gagal di Update');
-        //     if (Auth::user()->hasRole('admin')) {
-        //         return redirect()->route('admin.informasipublik');
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // }
     }
 
     /**
@@ -211,19 +174,5 @@ class SopController extends Controller
         $data = Sop::where('id',$data->id)->delete();
         return redirect()->route('admin.sop');
 
-        // if($data){
-        //     Alert::success('Success','Informasi Berhasil di Hapus');
-        //     if (Auth::user()->hasRole('admin')) {
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // } else {
-        //     Alert::error('Failed', 'Informasi Gagal di Hapus');
-        //     if (Auth::user()->hasRole('admin')) {
-        //         return redirect()->route('admin.informasipublik');
-        //     } else {
-        //         return redirect()->route('petugas.informasipublik');
-        //     }
-        // }
     }
 }

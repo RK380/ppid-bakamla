@@ -10,7 +10,7 @@
                     <div class="page-meta">
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/admin">Data</a></li>
+                                <li class="breadcrumb-item"><a href="/admin">Dashboard Admin</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Pesan Kontak Kami</li>
                             </ol>
                         </nav>
@@ -25,7 +25,7 @@
                         <div class="col-lg-12">
                             <div class="statbox widget box box-shadow">
                                 <div class="widget-content widget-content-area">
-                                    <table id="style-3" class="table style-3 dt-table-hover">
+                                    <table id="zero-config" class="table dt-table-hover">
                                         <thead>
                                             <tr>
                                                 <th class="checkbox-column text-center"> Record Id </th>
@@ -43,8 +43,8 @@
                                                 <td class="checkbox-column text-center"> {{ $loop->iteration }} </td>
                                                 <td>{{ $p->nama }}</td>
                                                 <td>{{ $p->email }}</td>
-                                                <td>{{ Str::limit($p->message, 50) }}</td>
-                                                <td>{{ $p->created_at->format('d-m-Y') }}</td>
+                                                <td>{{ \Illuminate\Support\Str::limit($p->pesan, 40) }}</td>
+                                                <td>{{ $p->created_at->format('d-m-Y | H:i:s') }}</td>
                                                 <td>
                                                     @if($p->is_read)
                                                         <span class="badge bg-success">Sudah Dibaca</span>
@@ -55,8 +55,15 @@
                                                 <td class="text-center">
                                                     <ul class="table-controls d-flex justify-content-center" style="list-style:none; padding:0; margin:0;">
                                                         <li>
-                                                            <a href="{{ route('admin.pesan.show', $p->id) }}" class="btn btn-primary btn-sm">
-                                                                Lihat
+                                                            <a href="{{ route('admin.pesan.show', $p->id) }}" lass="btn btn-link p-0 m-0 align-baseline bs-tooltip" 
+                                                                        data-bs-toggle="tooltip" 
+                                                                        data-bs-placement="top" 
+                                                                        title="Lihat"
+                                                                        style="border:none; background:none; cursor:pointer;">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="main-grid-item-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                                    <circle cx="12" cy="12" r="3" />
+                                                                    </svg>
                                                             </a>
                                                             <form action="{{ route('admin.pesan.destroy', $p->id) }}" 
                                                                 method="POST" 
@@ -64,18 +71,6 @@
                                                                 style="display:inline;">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                {{-- <a href="{{ route('admin.pesan.edit', $p->id) }}" 
-                                                                    class="bs-tooltip" 
-                                                                    data-bs-toggle="tooltip" 
-                                                                    data-bs-placement="top" 
-                                                                    title="Edit">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
-                                                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-                                                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                                                            class="feather feather-edit-2 p-1 br-8 mb-1">
-                                                                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                                                                        </svg>
-                                                                </a> --}}
                                                                 <button type="submit" 
                                                                         class="btn btn-link p-0 m-0 align-baseline bs-tooltip" 
                                                                         data-bs-toggle="tooltip" 
@@ -85,18 +80,16 @@
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
                                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" 
                                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                                                        class="feather feather-trash p-1 br-8 mb-1 text-danger">
+                                                                        class="feather feather-trash w-6 h-6 text-danger">
                                                                         <polyline points="3 6 5 6 21 6"></polyline>
                                                                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6
                                                                                 m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                                                                     </svg>
                                                                 </button>
                                                             </form>
-
                                                         </li>
                                                     </ul>
                                                 </td>
-
                                             </tr>
                                             @endforeach
                                         </tbody>

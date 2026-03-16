@@ -76,7 +76,7 @@ Route::post('/sesi/create', [SessionController::class,'create'])->middleware(isT
 // Route::get('/admin', [AdminController::class,'index'])->middleware('isLogin');
 Route::middleware(isLogin::class)->get('/admin', function () {
     return view('be.index');
-});
+})->name('admin');
 
 // Route::group(['middleware' => ['auth','role:admin'],'prefix'=>'admin'],function (){
 // BE Klasifikasi
@@ -90,6 +90,7 @@ Route::middleware(isLogin::class)->group(function () {
     // BE Informasi Publik
     Route::get('/infopub', [InformasiPublikController::class, 'index'])->name('admin.informasipublik');
     Route::get('/infopub/create', [InformasiPublikController::class, 'create'])->name('admin.informasipublik.create');
+    Route::get('/infopub/show/{id}', [InformasiPublikController::class, 'show'])->name('admin.informasipublik.show');
     Route::post('/infopub/store', [InformasiPublikController::class, 'store'])->name('admin.informasipublik.store');
     Route::delete('/infopub/destroy/{id}', [InformasiPublikController::class,'destroy'])->name('admin.informasipublik.destroy');
     Route::get('/infopub/edit/{id}', [InformasiPublikController::class,'edit'])->name('admin.informasipublik.edit');

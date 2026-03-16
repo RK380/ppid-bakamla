@@ -1,7 +1,8 @@
 @extends('be.layouts.app')
 @section('content')
-<div class="container">
-                <div class="container">
+<div class="layout-px-spacing">
+
+                <div class="middle-content container-xxl p-0">
 
                     <!-- BREADCRUMB -->
                     <div class="page-meta">

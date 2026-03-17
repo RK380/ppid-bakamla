@@ -12,39 +12,52 @@ class SessionController extends Controller
 {
     function index()
     {
-        return view("sesi/index");
+        // 🔥 kalau sudah login, langsung lempar ke dashboard
+        if (Auth::check()) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return view('sesi/index'); // halaman login kamu
     }
+    
     function login(Request $request)
     {
-        Session::flash('email',$request->email);
-        $request->validate([
-            'email'=>'required',
-            'password'=>'required'
-        ],[
-            'email.required' => 'Email Wajib diisi',
-            'password.required' => 'Password Wajib diisi',
+        $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
         ]);
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        if (Auth::attempt($credentials)) {
 
-        if(Auth::attempt($infologin)){
-            //kalo otentikasi sukses
-            // return 'sukses';
-            return redirect('admin')->with('Success','Berhasil Login');
-        }else{
-            //kalo otentikasi gagal
-            // return 'gagal';
-            return redirect('sesi')->withErrors('Username dan Password Salah');
+            // 🔥 penting (anti session hijack)
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+
+            // 🔐 redirect berdasarkan role
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard')
+                    ->with('success', 'Login berhasil');
+            }
+
+            // fallback
+            return redirect('/')->with('success', 'Login berhasil');
         }
+
+        return back()->withErrors([
+            'email' => 'Email atau password salah'
+        ]);
     }
 
-    function logout()
+    function logout(Request $request)
     {
         Auth::logout();
-        return redirect('sesi')->with('Success','Berhasil Logout');
+
+    // 🔥 hapus session total
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/sesi')->with('success', 'Logout berhasil');
     }
 
     function register()

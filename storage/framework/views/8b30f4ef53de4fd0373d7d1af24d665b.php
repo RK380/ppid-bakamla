@@ -27,6 +27,9 @@
                             <button class="btn btn-lg btn-primary btn-block btn-signin" name="submit" type="submit">Login</button>
                         </div>
                     </form><!-- /form -->
+                    <?php if(session('error')): ?>
+                        <div><?php echo e(session('error')); ?></div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

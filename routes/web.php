@@ -9,8 +9,6 @@ use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SopController;
 use App\Http\Controllers\VisitorController;
-use App\Http\Middleware\isLogin;
-use App\Http\Middleware\isTamu;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -65,50 +63,60 @@ Route::get('/unitkerja', [HalamanController::class, 'unitkerja']);
 //Kirim Pesan
 Route::post('/kirim-pesan', [KontakKamiController::class, 'store'])->name('pesan.store');
 
-//Login
-Route::get('/sesi', [SessionController::class,'index'])->middleware(isTamu::class);
-Route::post('/sesi/login', [SessionController::class,'login'])->middleware(isTamu::class);
-Route::get('/sesi/logout', [SessionController::class,'logout']);
-Route::get('/sesi/register', [SessionController::class,'register'])->middleware(isTamu::class);
-Route::post('/sesi/create', [SessionController::class,'create'])->middleware(isTamu::class);
+// Halaman Login
+Route::get('/sesi', [SessionController::class, 'index'])->name('login');
+// Proses Login
+Route::post('/sesi/login', [SessionController::class, 'login']);
+// Logout
+Route::get('/sesi/logout', [SessionController::class, 'logout'])->name('logout');
 
 // Dashboard Admin
-// Route::get('/admin', [AdminController::class,'index'])->middleware('isLogin');
-Route::middleware(isLogin::class)->get('/admin', function () {
-    return view('be.index');
-})->name('admin');
+Route::prefix('admin')->name('admin.')
+    ->middleware('admin') // 🔥 proteksi
+    ->group(function () {
 
-// Route::group(['middleware' => ['auth','role:admin'],'prefix'=>'admin'],function (){
-// BE Klasifikasi
-Route::middleware(isLogin::class)->group(function () {
-    Route::get('/klasifikasi', [KlasifikasiController::class, 'index'])->name('admin.klasifikasi');
-    Route::get('/klasifikasi/create', [KlasifikasiController::class, 'create'])->name('admin.klasifikasi.create');
-    Route::post('/klasifikasi/store', [KlasifikasiController::class, 'store'])->name('admin.klasifikasi.store');
-    Route::get('/klasifikasi/edit/{id}', [KlasifikasiController::class, 'edit'])->name('admin.klasifikasi.edit');
-    Route::put('/klasifikasi/update/{id}', [KlasifikasiController::class, 'update'])->name('admin.klasifikasi.update');
-    Route::delete('/klasifikasi/destroy/{id}', [KlasifikasiController::class, 'destroy'])->name('admin.klasifikasi.destroy');
-    // BE Informasi Publik
-    Route::get('/infopub', [InformasiPublikController::class, 'index'])->name('admin.informasipublik');
-    Route::get('/infopub/create', [InformasiPublikController::class, 'create'])->name('admin.informasipublik.create');
-    Route::get('/infopub/show/{id}', [InformasiPublikController::class, 'show'])->name('admin.informasipublik.show');
-    Route::post('/infopub/store', [InformasiPublikController::class, 'store'])->name('admin.informasipublik.store');
-    Route::delete('/infopub/destroy/{id}', [InformasiPublikController::class,'destroy'])->name('admin.informasipublik.destroy');
-    Route::get('/infopub/edit/{id}', [InformasiPublikController::class,'edit'])->name('admin.informasipublik.edit');
-    Route::put('/infopub/update/{id}', [InformasiPublikController::class,'update'])->name('admin.informasipublik.update');
-    
-    // BE Standar Operasional Layanan
-    Route::get('/sop', [SopController::class, 'index'])->name('admin.sop');
-    Route::get('/sop/create', [SopController::class, 'create'])->name('admin.sop.create');
-    Route::post('/sop/store', [SopController::class, 'store'])->name('admin.sop.store');
-    Route::delete('/sop/destroy/{id}', [SopController::class,'destroy'])->name('admin.sop.destroy');
-    Route::get('/sop/edit/{id}', [SopController::class,'edit'])->name('admin.sop.edit');
-    Route::put('/sop/update/{id}', [SopController::class,'update'])->name('admin.sop.update');
-    // });
+    Route::get('/', function () {
+        return view('be.index');
+    })->name('dashboard');
 
-    // BE Pesan Masuk
-    Route::get('/pesan', [KontakKamiController::class, 'index'])->name('admin.pesan');
-    Route::get('/pesan/show/{id}', [KontakKamiController::class,'show'])->name('admin.pesan.show');
-    Route::delete('/pesan/destroy/{id}', [KontakKamiController::class,'destroy'])->name('admin.pesan.destroy');
+    // Klasifikasi
+    Route::controller(KlasifikasiController::class)->group(function () {
+        Route::get('/klasifikasi', 'index')->name('klasifikasi');
+        Route::get('/klasifikasi/create', 'create')->name('klasifikasi.create');
+        Route::post('/klasifikasi/store', 'store')->name('klasifikasi.store');
+        Route::get('/klasifikasi/edit/{id}', 'edit')->name('klasifikasi.edit');
+        Route::put('/klasifikasi/update/{id}', 'update')->name('klasifikasi.update');
+        Route::delete('/klasifikasi/destroy/{id}', 'destroy')->name('klasifikasi.destroy');
+    });
+
+    // SOP
+    Route::controller(SopController::class)->group(function () {
+        Route::get('/sop', 'index')->name('sop');
+        Route::get('/sop/create', 'create')->name('sop.create');
+        Route::post('/sop/store', 'store')->name('sop.store');
+        Route::get('/sop/edit/{id}', 'edit')->name('sop.edit');
+        Route::put('/sop/update/{id}', 'update')->name('sop.update');
+        Route::delete('/sop/destroy/{id}', 'destroy')->name('sop.destroy');
+    });
+
+    // Informasi Publik
+    Route::controller(InformasiPublikController::class)->group(function () {
+        Route::get('/informasipublik', 'index')->name('informasipublik');
+        Route::get('/informasipublik/create', 'create')->name('informasipublik.create');
+        Route::post('/informasipublik/store', 'store')->name('informasipublik.store');
+        Route::get('/informasipublik/edit/{id}', 'edit')->name('informasipublik.edit');
+        Route::get('/informasipublik/show/{id}', 'show')->name('informasipublik.show');
+        Route::put('/informasipublik/update/{id}', 'update')->name('informasipublik.update');
+        Route::delete('/informasipublik/destroy/{id}', 'destroy')->name('informasipublik.destroy');
+    });
+
+    // Pesan
+    Route::controller(KontakKamiController::class)->group(function () {
+        Route::get('/pesan', 'index')->name('pesan');
+        Route::get('/pesan/show/{id}', 'show')->name('pesan.show');
+        Route::delete('/pesan/destroy/{id}', 'destroy')->name('pesan.destroy');
+    });
+
 });
 
 Route::get('refresh-captcha', function () {

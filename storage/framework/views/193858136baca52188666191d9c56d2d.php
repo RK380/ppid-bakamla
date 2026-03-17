@@ -42,7 +42,7 @@ unset($__errorArgs, $__bag); ?>" name="file" id="exampleFormControlFile1">
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
-                                        <a href="/sop" class="btn btn-gray">Kembali</a>
+                                        <a href="/admin/sop" class="btn btn-gray">Kembali</a>
                                 </div>
                             </form>
                         </div>

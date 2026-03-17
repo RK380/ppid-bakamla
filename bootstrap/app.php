@@ -11,8 +11,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(\App\Http\Middleware\TrackVisitor::class);
-    })
+
+    $middleware->append(\App\Http\Middleware\TrackVisitor::class);
+
+    // 🔥 Daftarkan alias middleware
+    $middleware->alias([
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+    ]);
+
+})
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

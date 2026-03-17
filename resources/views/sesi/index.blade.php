@@ -27,6 +27,9 @@
                             <button class="btn btn-lg btn-primary btn-block btn-signin" name="submit" type="submit">Login</button>
                         </div>
                     </form><!-- /form -->
+                    @if(session('error'))
+                        <div>{{ session('error') }}</div>
+                    @endif
                 </div>
             </div>
         </div>

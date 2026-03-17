@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
-                                            <a href="/infopub" class="btn btn-gray">Kembali</a>
+                                            <a href="/admin/infopub" class="btn btn-gray">Kembali</a>
                                         </div>
                                     </form>
                                 </div>

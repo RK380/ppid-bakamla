@@ -25,7 +25,7 @@
                         <div class="col-lg-12">
                             <div class="statbox widget box box-shadow">
                                 <div class="widget-content widget-content-area">
-                                    <table id="style-3" class="table style-3 dt-table-hover">
+                                    <table id="zero-config" class="table dt-table-hover">
                                         <thead>
                                             <tr>
                                                 <th class="checkbox-column text-center"> Record Id </th>

@@ -71,8 +71,8 @@
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="{{ asset('../be/src/plugins/src/apex/apexcharts.min.js')}}"></script>
-    <script src="{{ asset('../be/src/assets/js/dashboard/dash_1.js')}}"></script>
+    {{-- <script src="{{ asset('../be/src/plugins/src/apex/apexcharts.min.js')}}"></script> --}}
+    {{-- <script src="{{ asset('../be/src/assets/js/dashboard/dash_1.js')}}"></script> --}}
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -97,28 +97,28 @@
 
     <script>
         function checkNotif(){
-            fetch("{{ url('/pesan/unread') }}")
-            .then(response => response.json())
+            fetch("{{ url('/admin/pesan/unread') }}?t=" + Date.now())
+            .then(res => res.json())
             .then(data => {
 
-                let badge = document.getElementById('notif-badge');
+                console.log("TOTAL:", data.total);
 
-                if(data.total > 0){
-                    badge.classList.remove('d-none');
-                }else{
-                    badge.classList.add('d-none');
+                const badge = document.getElementById('notif-badge');
+
+                if(badge){
+                    if(data.total > 0){
+                        badge.style.display = "inline-block";
+                    }else{
+                        badge.style.display = "none";
+                    }
                 }
 
             });
         }
 
-        // load pertama
         checkNotif();
-
-        // cek setiap 5 detik
-        setInterval(checkNotif, 5000);
+        setInterval(checkNotif, 10000);
     </script>
     <!-- END PAGE LEVEL SCRIPTS -->
-
 </body>
 </html>

@@ -53,9 +53,8 @@ class KontakKamiController extends Controller
     public function show($id)
     {
         $message = KontakKami::findOrFail($id);
-        $message->update([
-            'is_read' => true
-        ]);
+        $message->is_read = true;
+        $message->save();
 
         return view('be.kontakkami.show', [
             'title' => 'Lihat Pesan Masuk',
@@ -92,10 +91,10 @@ class KontakKamiController extends Controller
 
     public function unread()
     {
-        $total = KontakKami::where('is_read', false)->count();
+        $total = KontakKami::where('is_read', 0)->count();
 
         return response()->json([
-            'total' => $total
+            'total' => (int) $total
         ]);
     }
 }

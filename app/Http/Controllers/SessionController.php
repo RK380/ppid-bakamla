@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class SessionController extends Controller
 {
@@ -16,8 +18,20 @@ class SessionController extends Controller
         if (Auth::check()) {
             return redirect()->route('admin.dashboard');
         }
+        
+            $data = Visitor::select(
+            DB::raw('DATE(created_at) as tanggal'),
+            DB::raw('count(*) as total')
+        )
+        ->groupBy('tanggal')
+        ->orderBy('tanggal', 'ASC')
+        ->get();
 
-        return view('sesi/index'); // halaman login kamu
+        // pisahkan jadi array
+        $labels = $data->pluck('tanggal');
+        $values = $data->pluck('total');
+
+        return view('sesi/index', compact('labels','values')); // halaman login kamu
     }
     
     function login(Request $request)

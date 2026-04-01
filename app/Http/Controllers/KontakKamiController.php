@@ -89,4 +89,13 @@ class KontakKamiController extends Controller
         return redirect()->route('admin.pesan')
         ->with('success','Pesan berhasil dihapus');
     }
+
+    public function unread()
+    {
+        $total = KontakKami::where('is_read', false)->count();
+
+        return response()->json([
+            'total' => $total
+        ]);
+    }
 }

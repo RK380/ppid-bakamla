@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                <div class="dropdown-item text-center">
+                                <div class="dropdown-item text-center" style="color:#FFFFFF;">
                                 Tidak ada pesan baru
                                 </div>
                             <?php endif; ?>

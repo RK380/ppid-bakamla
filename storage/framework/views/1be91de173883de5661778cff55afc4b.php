@@ -94,6 +94,30 @@
             "pageLength": 10 
         });
     </script>
+
+    <script>
+        function checkNotif(){
+            fetch("<?php echo e(url('/pesan/unread')); ?>")
+            .then(response => response.json())
+            .then(data => {
+
+                let badge = document.getElementById('notif-badge');
+
+                if(data.total > 0){
+                    badge.classList.remove('d-none');
+                }else{
+                    badge.classList.add('d-none');
+                }
+
+            });
+        }
+
+        // load pertama
+        checkNotif();
+
+        // cek setiap 5 detik
+        setInterval(checkNotif, 5000);
+    </script>
     <!-- END PAGE LEVEL SCRIPTS -->
 
 </body>

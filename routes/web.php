@@ -115,6 +115,7 @@ Route::prefix('admin')->name('admin.')
         Route::get('/pesan', 'index')->name('pesan');
         Route::get('/pesan/show/{id}', 'show')->name('pesan.show');
         Route::delete('/pesan/destroy/{id}', 'destroy')->name('pesan.destroy');
+        Route::get('/pesan/unread', 'unread');
     });
 
 });

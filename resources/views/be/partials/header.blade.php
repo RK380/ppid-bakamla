@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             @empty
-                                <div class="dropdown-item text-center">
+                                <div class="dropdown-item text-center" style="color:#FFFFFF;">
                                 Tidak ada pesan baru
                                 </div>
                             @endforelse

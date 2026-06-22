@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/src/table/datatable/datatables.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/css/light/table/datatable/dt-global_style.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('../be/src/plugins/css/dark/table/datatable/dt-global_style.css')); ?>">
-
+    <link rel="stylesheet" href="<?php echo e(asset('be/src/assets/leaflet/leaflet.css')); ?>">
     <!-- END PAGE LEVEL CUSTOM STYLES -->
 
 </head>
@@ -118,6 +118,31 @@
 
         checkNotif();
         setInterval(checkNotif, 10000);
+    </script>
+    <script src="<?php echo e(asset('../be/src/assets/leaflet/leaflet.js')); ?>"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var map = L.map('map').setView([-2.5, 118], 5);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(map);
+
+            var marker;
+
+            map.on('click', function(e) {
+                document.getElementById('lat').value = e.latlng.lat;
+                document.getElementById('lng').value = e.latlng.lng;
+
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+
+                marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+            });
+
+        });
     </script>
     <!-- END PAGE LEVEL SCRIPTS -->
 </body>

@@ -1,14 +1,10 @@
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
+<section id="values" class="values section">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up" style="margin-top:60px;">Statistik Layanan Informasi Publik</h1>
           <h2 data-aos="fade-up" data-aos-delay="200">Badan Keamanan Laut Republik Indonesia (Bakamla RI)</h2>
-          
-            
-            
-          
           <style>       
             .bg-grad {
                 background-image: linear-gradient(to right, #f06161 0%, #d82137  51%, #f06161  100%);
@@ -54,7 +50,7 @@
               <div class="row gy-4">
 
                 <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                  <div class="service-item item-red position-relative">
+                  <div class="service-item item-cyan position-relative">
                     <i class="bi bi-info-circle icon"></i>
                       <h2>0</h2>
                       <h3>INFORMASI</h3>
@@ -62,7 +58,7 @@
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                  <div class="service-item item-red position-relative">
+                  <div class="service-item item-orange position-relative">
                     <i class="bi bi-upload icon"></i>
                       <h2>0</h2>
                       <h3>PERMOHONAN</h3>
@@ -78,7 +74,7 @@
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-item item-red position-relative">
+                    <div class="service-item item-teal position-relative">
                     <i class="bi bi-check-square icon"></i>
                       <h2>0</h2>
                       <h3>SELESAI</h3>
@@ -89,42 +85,7 @@
             </div>
           </section>
 
-          <div class="row mt-3">
-            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="700">
-                <div class="card shadow-lg bg-grad-secondary">
-                    <div class="card-body">
-                        <h5 class="text-dark mb-0 mt-5">Informasi Publik</h5>
-                        <canvas id="myChart" width="400" height="400"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="700">
-                <div class="card shadow-lg bg-grad-secondary">
-                    <div class="card-body">
-                        <h5 class="text-dark mb-0 mt-5">Permohonan Informasi</h5>
-                        <canvas id="myChart2" width="400" height="400"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="800">
-                <div class="card shadow-lg bg-grad-secondary">
-                    <div class="card-body">
-                        <h5 class="text-dark mb-0 mt-5">Jumlah Permohonan</h5>
-                        <p class="text-muted small mb-0">Berdasarkan user pada bulan sekarang (<?php echo e(\Carbon\Carbon::now()->isoFormat('MMMM')); ?>)</p>
-                        <canvas id="myChart3" width="400" height="400"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="800">
-                <div class="card shadow-lg bg-grad-secondary">
-                    <div class="card-body">
-                        <h5 class="text-dark mb-0 mt-5">Jumlah Keberatan</h5>
-                        <p class="text-muted small mb-0">Berdasarkan user pada bulan sekarang (<?php echo e(\Carbon\Carbon::now()->isoFormat('MMMM')); ?>)</p>
-                        <canvas id="myChart4" width="400" height="400"></canvas>
-                    </div>
-                </div>
-            </div>
-          </div>
+          
                 
         </div>
       </div>

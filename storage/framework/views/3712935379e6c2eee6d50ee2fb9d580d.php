@@ -1,13 +1,14 @@
 
 <?php $__env->startSection('content'); ?>
-<div class="container">
-                <div class="container">
+<div class="layout-px-spacing">
+
+                <div class="middle-content container-xxl p-0">
 
                     <!-- BREADCRUMB -->
                     <div class="page-meta">
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/berita">Form</a></li>
+                                <li class="breadcrumb-item"><a href="/klasifikasi">Form</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Tambah Data Master Klasifikasi IPP</li>
                             </ol>
                         </nav>
@@ -27,7 +28,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
-                                            <a href="/klasifikasi" class="btn btn-gray">Kembali</a>
+                                            <a href="/admin/klasifikasi" class="btn btn-gray">Kembali</a>
                                         </div>
                                     </form>
                                 </div>

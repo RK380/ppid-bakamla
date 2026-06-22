@@ -1,7 +1,8 @@
 
 <?php $__env->startSection('content'); ?>
-<div class="container">
-                <div class="container">
+<div class="layout-px-spacing">
+
+                <div class="middle-content container-xxl p-0">
 
                     <!-- BREADCRUMB -->
                     <div class="page-meta">
@@ -44,7 +45,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
-                                            <a href="/infopub" class="btn btn-gray">Kembali</a>
+                                            <a href="<?php echo e(route('admin.informasipublik')); ?>" class="btn btn-gray">Kembali</a>
                                         </div>
                                     </form>
                                 </div>

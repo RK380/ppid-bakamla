@@ -64,7 +64,7 @@
               </div>
 
               <div class="col-12 text-center">
-                <button type="reset" class="btn btn-secondary">Batal</button>
+                <a href="{{ route('pemohon.register') }}" type="reset" class="btn btn-secondary">Batal</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
 

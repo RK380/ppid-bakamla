@@ -24,7 +24,7 @@
   
       
       <!-- Values Section -->
-      <section id="values" class="values section">
+      <section id="values" class="values section" style="background-color:#f4faff;">
   
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -37,24 +37,24 @@
           <div class="row gy-4">
   
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="card">
-                <img src="assets/img/IPSB.png" class="img-fluid" alt="">
-                <a href="/daftar-informasi-publik/1" ><h3>Informasi Publik Secara Berkala</h3></a>
+              <div class="card" style="background: linear-gradient(to right, #d1fbff, #478CCF);">
+                
+                <a href="/daftar-informasi-publik/1"><h3>Informasi Publik Secara Berkala</h3></a>
                 <p>Merupakan informasi yang wajib disediakan dan diumumkan secara berkala</p>
               </div>
             </div><!-- End Card Item -->
   
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="card">
-                <img src="assets/img/IPSM.png" class="img-fluid" alt="">
+              <div class="card" style="background: linear-gradient(to right, #d1fbff, #478CCF);">
+                
                 <a href="/daftar-informasi-publik/3" ><h3>Informasi Publik Serta Merta</h3></a>
                 <p>Informasi yang dapat mengancam hajat hidup orang banyak dan ketertiban umum</p>
               </div>
             </div><!-- End Card Item -->
   
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="card">
-                <img src="assets/img/IPSS.png" class="img-fluid" alt="">
+              <div class="card" style="background: linear-gradient(to right, #d1fbff, #478CCF);">
+                
                 <a href="/daftar-informasi-publik/2" ><h3>Informasi Publik Setiap Saat</h3></a>
                 <p>Informasi yang wajib disediakan oleh Badan Publik</p>
               </div>
@@ -65,6 +65,30 @@
         </div>
   
       </section><!-- /Values Section -->
+
+      <!-- Lokasi Section -->
+      <section id="values" class="values section">
+  
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <p>PPID Pelaksana Daerah</p>
+          <h2>Pelaksana<br></h2>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+  
+          <div class="row gy-4">
+            <div class="justify-content-custom mb-10 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+              <div id="map" style="height: 500px;outline-style:solid;border-radius:10px;"></div>
+            </div>
+          </div>
+
+        </div>
+        
+      </section>
+      <!-- End Lokasi Section -->
+
+      
   
       <!-- Services Section -->
       <section id="services" class="services section">
@@ -83,7 +107,6 @@
               <div class="service-item item-cyan position-relative">
                 <i class="bi bi-activity icon"></i>
                 <h3>WhistleBlowing System (WBS)</h3>
-                
                   <a href="https://wbs.bakamla.go.id" class="read-more stretched-link"> <i class="bi bi-arrow-right"></i></a>
               </div>
             </div><!-- End Service Item -->
@@ -92,8 +115,7 @@
               <div class="service-item item-red position-relative">
                 <i class="bi bi-broadcast icon"></i>
                 <h3>SP4N-LAPOR!</h3>
-                
-                <a href="https://lapor.go.id" class="read-more stretched-link"> <i class="bi bi-arrow-right"></i></a>
+                  <a href="https://lapor.go.id" class="read-more stretched-link"> <i class="bi bi-arrow-right"></i></a>
               </div>
             </div><!-- End Service Item -->
           </div>
@@ -107,7 +129,7 @@
       <!-- /Faq Section -->
   
       <!-- Clients Section -->
-      <section id="clients" class="clients section">
+      <section id="clients" class="clients section" style="background-color:#f4faff;">
   
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -169,8 +191,6 @@
   
       </section>
       <!-- /Clients Section -->
-
-      
 
       <!-- Contact Section -->
       <section id="contact" class="contact section">

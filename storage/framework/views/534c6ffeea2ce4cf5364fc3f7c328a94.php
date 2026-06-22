@@ -1,6 +1,7 @@
 
   
-  <section id="values" class="values section">
+  <section id="values" class="values section" style="background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url('<?php echo e(asset('assets/img/bg-original.jpg')); ?>');background-size: cover;
+    background-position: center;">
   <!-- <div class="card mb-3 card-shadow"> -->
     <div class="card-body">
       <div class="container">

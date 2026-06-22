@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klasifikasi;
+use App\Models\Lokasi;
 use App\Models\PermohonanInformasi;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
@@ -26,9 +27,10 @@ class PermohonanInformasiController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
+        $lokasi = Lokasi::all();
         return view('pemohon-register', [
             'klasifikasis' => $klasifikasis
-        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     public function indexlembaga()
@@ -44,7 +46,8 @@ class PermohonanInformasiController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('lembaga-register', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('lembaga-register', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     public function indexperorangan()
@@ -60,7 +63,8 @@ class PermohonanInformasiController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('perorangan-register', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('perorangan-register', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     /**

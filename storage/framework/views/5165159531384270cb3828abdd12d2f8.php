@@ -6,22 +6,25 @@
         <div class="col-lg-12 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Visi & Misi</h1>
           <h2 data-aos="fade-up" data-aos-delay="400">Pejabat Pengelola Informasi Dan Dokumentasi (PPID)</h2>
-          <div data-aos="fade-up" data-aos-delay="600">
-            <div class="mt-4" style="text-align:justify;">
-                <span>Visi PPID Bakamla</span>
-                <h6 style="margin-bottom:10px;margin-top:10px;">"Mewujudkan Pelayanan Informasi Publik dengan Cepat dan Akuntabel"</h6>
+            <div class="card shadow-lg bg-grad-secondary">
+              <div class="card-body">
+                <div data-aos="fade-up" data-aos-delay="600">
+                  <div style="text-align:justify;">
+                      <span>Visi PPID Bakamla</span>
+                      <h6 style="margin-bottom:10px;margin-top:10px;">"Mewujudkan Pelayanan Informasi Publik dengan Cepat dan Akuntabel"</h6>
+                  </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="600">
+                  <div style="text-align:justify;">
+                      <span>Misi PPID Bakamla</span>
+                      <h6 style="margin-bottom:10px;margin-top:10px;">- Meningkatkan pengelolaan dokumentasi Informasi publik</h6>
+                      <h6 style="margin-bottom:10px;margin-top:10px;">- Memenuhi kebutuhan Masyarakat terhadap akses informasi</h6>
+                      <h6 style="margin-bottom:10px;margin-top:10px;">- Meningkatkan sarana dan prasarana pelayanan informasi publik</h6>
+                      <h6 style="margin-bottom:10px;margin-top:10px;">- Memberikan Informasi yang Akurat dan Akuntabel kepada Masyarakat</h6>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-up" data-aos-delay="600">
-            <div class="mt-4" style="text-align:justify;">
-                <span>Misi PPID Bakamla</span>
-                <h6 style="margin-bottom:10px;margin-top:10px;">- Meningkatkan pengelolaan dokumentasi Informasi publik</h6>
-                <h6 style="margin-bottom:10px;margin-top:10px;">- Memenuhi kebutuhan Masyarakat terhadap akses informasi</h6>
-                <h6 style="margin-bottom:10px;margin-top:10px;">- Meningkatkan sarana dan prasarana pelayanan informasi publik</h6>
-                <h6 style="margin-bottom:10px;margin-top:10px;">- Memberikan Informasi yang Akurat dan Akuntabel kepada Masyarakat</h6>
-            </div>
-          </div>
-          
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InformasiPublik;
 use App\Models\Klasifikasi;
+use App\Models\Lokasi;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,13 +27,14 @@ class InformasiPublikController extends Controller
         $total = Visitor::count();
         $datas = InformasiPublik::where('klasifikasi_id', $id)->orderBy('created_at', 'desc')->get();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
+        $lokasi = Lokasi::all();
         //dd($klasifikasis);
         return view('infopub', [
             'title' => 'Informasi Publik',
             'datas' => $datas,
             'klasifikasis' => $klasifikasis,
             // 'profilkantor' => ProfilKantor::first()
-        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total','lokasi'));
     }
 
     public function unduh($id)

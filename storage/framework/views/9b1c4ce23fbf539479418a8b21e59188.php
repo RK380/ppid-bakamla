@@ -21,14 +21,15 @@
     }
 </style>
 <?php $__env->stopSection(); ?>
-<section id="values" class="values section" style="margin-top: 20px;">
+<section id="values" class="values section" style="background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url('<?php echo e(asset('assets/img/bg-original.jpg')); ?>');background-size: cover;
+    background-position: center;">
     <div class="container section-title" data-aos="fade-up">
         <p>Daftar Informasi</p>
         <h2>Demi mewujudkan pelayanan informasi publik yang informatif, Badan Keamanan Laut (Bakamla) memberikan keterbukaan informasi yang optimal kepada lembaga maupun perorangan, seperti yang telah diamanahkan oleh negara.<br></h2>
     </div><!-- End Section Title -->
     <!-- Serta Merta -->
         <div class="container" data-aos="fade-up">
-            <div class="content-panel" style="padding:15px;background-color:#f5f5f5;margin-bottom:5px;">
+            <div class="content-panel" style="padding:15px;background-color:#f5f5f5;margin-bottom:5px;border-radius:10px;">
             <div class="content-body-panel">
                 <div class="row">
 

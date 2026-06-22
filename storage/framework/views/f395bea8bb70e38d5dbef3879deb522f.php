@@ -55,14 +55,9 @@
                 <input type="password" class="form-control" name="konfirmasi_password" required="">
               </div>
 
-              
-
-              
-
               <div class="col-12 text-center">
-                
 
-                <button type="reset" class="btn btn-secondary">Batal</button>
+                <a href="<?php echo e(route('pemohon.register')); ?>" type="reset" class="btn btn-secondary">Batal</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
 

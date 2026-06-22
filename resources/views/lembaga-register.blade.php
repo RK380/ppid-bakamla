@@ -55,20 +55,9 @@
                 <input type="password" class="form-control" name="konfirmasi_password" required="">
               </div>
 
-              {{-- <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-              </div> --}}
-
-              {{-- <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required=""></textarea>
-              </div> --}}
-
               <div class="col-12 text-center">
-                {{-- <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div> --}}
 
-                <button type="reset" class="btn btn-secondary">Batal</button>
+                <a href="{{ route('pemohon.register') }}" type="reset" class="btn btn-secondary">Batal</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
 

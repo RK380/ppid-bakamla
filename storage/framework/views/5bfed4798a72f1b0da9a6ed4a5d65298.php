@@ -5,7 +5,6 @@
       <div class="row">
         <div class="col-lg-12 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Sejarah Singkat Badan Keamanan Laut Republik Indonesia</h1>
-          
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="mt-4" style="text-align:justify;">
                 <span>Badan Keamanan Laut Republik Indonesia (Bakamla RI) dibentuk pada tanggal 15 Desember 2014, berdasarkan Peraturan Presiden Nomor 178 Tahun 2014. Namun, cikal bakal Bakamla RI dapat ditelusuri hingga tahun 1972 dengan terbentuknya Badan Koordinasi Keamanan Laut (Bakorkamla). Bakamla RI menggantikan Bakorkamla dan bertugas menjaga keamanan dan keselamatan di wilayah perairan dan wilayah yurisdiksi Indonesia. 

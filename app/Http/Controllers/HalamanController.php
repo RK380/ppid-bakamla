@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klasifikasi;
+use App\Models\Lokasi;
 use App\Models\Upload;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
@@ -23,7 +24,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function profil()
@@ -39,7 +41,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/profil/index',compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/profil/index',compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function sejarah()
@@ -55,7 +58,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/sejarah/index',compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/sejarah/index',compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function tugas()
@@ -71,7 +75,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/tugas/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/tugas/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function visimisi()
@@ -87,7 +92,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/visimisi/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/visimisi/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function strukturorg()
@@ -103,7 +109,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/strukturorg/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/strukturorg/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function infopsb(Request $request)
@@ -160,7 +167,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/daftarinfo/infopss', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/daftarinfo/infopss', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function infopsm()
@@ -176,7 +184,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/daftarinfo/infopsm', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/daftarinfo/infopsm', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function infodkc()
@@ -192,7 +201,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/daftarinfo/infodkc', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/daftarinfo/infodkc', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function daftarinfo()
@@ -208,7 +218,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/daftarinfo/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/daftarinfo/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     // function sop()
@@ -230,7 +241,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/statistik/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/statistik/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function faq()
@@ -246,7 +258,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/faq/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/faq/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function unitkerja()
@@ -262,7 +275,8 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/unitkerja/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/unitkerja/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function kep90()
@@ -278,6 +292,7 @@ class HalamanController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
-        return view('halaman/standpel/kep', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        $lokasi = Lokasi::all();
+        return view('halaman/standpel/kep', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 }

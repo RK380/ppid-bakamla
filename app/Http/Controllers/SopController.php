@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klasifikasi;
+use App\Models\Lokasi;
 use App\Models\Sop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -25,13 +26,14 @@ class SopController extends Controller
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
         $datas = Sop::orderBy('created_at', 'desc')->get();
+        $lokasi = Lokasi::all();
         // dd($datas);
         return view('halaman.standpel.index', [
             'title' => 'Standar Layanan (Operasional) PPID',
             'datas' => $datas,
             'klasifikasis' => $klasifikasis
             // 'profilkantor' => ProfilKantor::first()
-        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     public function unduh($id)

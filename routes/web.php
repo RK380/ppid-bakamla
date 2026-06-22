@@ -5,6 +5,7 @@ use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\KlasifikasiController;
 use App\Http\Controllers\KontakKamiController;
+use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\PermohonanInformasiController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SopController;
@@ -59,6 +60,7 @@ Route::get('/faq', [HalamanController::class, 'faq']);
 
 //Unit Kerja
 Route::get('/unitkerja', [HalamanController::class, 'unitkerja']);
+
 
 //Kirim Pesan
 Route::post('/kirim-pesan', [KontakKamiController::class, 'store'])->name('pesan.store');
@@ -118,6 +120,17 @@ Route::prefix('admin')->name('admin.')
         Route::get('/pesan/unread', 'unread')->name('pesan.unread');
     });
 
+    // Lokasi
+    // Route::resource('lokasi', LokasiController::class);
+    Route::controller(LokasiController::class)->group(function () {
+        Route::get('/lokasi', 'index')->name('lokasi');
+        Route::get('/lokasi/create', 'create')->name('lokasi.create');
+        Route::post('/lokasi/store', 'store')->name('lokasi.store');
+        Route::get('/lokasi/edit/{id}', 'edit')->name('lokasi.edit');
+        Route::get('/lokasi/show/{id}', 'show')->name('lokasi.show');
+        Route::put('/lokasi/update/{id}', 'update')->name('lokasi.update');
+        Route::delete('/lokasi/destroy/{id}', 'destroy')->name('lokasi.destroy');
+    });
 });
 
 Route::get('refresh-captcha', function () {

@@ -3,14 +3,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Struktur Organisasi PPID</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Badan Keamanan Laut Republik Indonesia (Bakamla RI)</h2>
+          {{-- <h1 data-aos="fade-up">Struktur Organisasi PPID</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Badan Keamanan Laut Republik Indonesia (Bakamla RI)</h2> --}}
           <div data-aos="fade-up" data-aos-delay="600">
-            <div class="card shadow-lg bg-grad-secondary">
-              <div class="card-body">
-                <p style="text-align: center;"><img src="assets/img/SOPPID.png"></p>
-              </div>
-            </div>
+            {{-- <div class="card shadow-lg bg-grad-secondary">
+              <div class="card-body"> --}}
+                <p style="text-align: center;"><img src="assets/img/StrukturOR.jpeg"></p>
+              {{-- </div>
+            </div> --}}
           </div>
         </div>
       </div>

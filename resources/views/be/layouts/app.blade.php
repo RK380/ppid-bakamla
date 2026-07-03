@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>PPID Admin - Dashboard Admin PPID </title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('../be/src/assets/img/face.png')}}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('../assets/img/logobkl.png')}}"/>
     <link href="{{ asset('../be/layouts/modern-dark-menu/css/light/loader.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('../be/layouts/modern-dark-menu/css/dark/loader.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('../be/layouts/modern-dark-menu/loader.js')}}"></script>
@@ -71,8 +71,8 @@
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    {{-- <script src="{{ asset('../be/src/plugins/src/apex/apexcharts.min.js')}}"></script> --}}
-    {{-- <script src="{{ asset('../be/src/assets/js/dashboard/dash_1.js')}}"></script> --}}
+    <script src="{{ asset('../be/src/plugins/src/apex/apexcharts.min.js')}}"></script>
+    <script src="{{ asset('../be/src/assets/js/dashboard/dash_1.js')}}"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -144,6 +144,7 @@
 
         });
     </script>
+    @stack('scripts')
     <!-- END PAGE LEVEL SCRIPTS -->
 </body>
 </html>

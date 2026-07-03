@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Visitor; 
+// use Illuminate\Http\Request;
+use App\Models\ActivityLog;
+use App\Models\Visitor;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class VisitorController extends Controller
 {
@@ -16,6 +18,25 @@ class VisitorController extends Controller
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
         $total = Visitor::count();
 
-        return view('halaman.index', compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total'));
+        // Grafik Visitor 30 Hari Terakhir
+        $visitorsChart = Visitor::select(
+                DB::raw('DATE(created_at) as tanggal'),
+                DB::raw('COUNT(*) as total')
+            )
+            ->whereDate('created_at', '>=', now()->subDays(30))
+            ->groupBy('tanggal')
+            ->orderBy('tanggal')
+            ->get();
+
+        $chartLabels = $visitorsChart->pluck('tanggal');
+        $chartData = $visitorsChart->pluck('total');
+
+        // Activity Log Terbaru
+        $activityLogs = ActivityLog::latest()
+            ->take(10)
+            ->get();
+
+        return view('halaman.index', compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'chartLabels', 'chartData', 'activityLogs'));
+    
     }
 }

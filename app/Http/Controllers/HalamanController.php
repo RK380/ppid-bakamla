@@ -3,16 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klasifikasi;
+use App\Models\InformasiPublik;
 use App\Models\Lokasi;
 use App\Models\Upload;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class HalamanController extends Controller
 {
     public function index()
-    {
+    {   
+        $jumlahKlasifikasi = DB::table('informasi_publiks')
+            ->join('klasifikasis', 'informasi_publiks.klasifikasi_id', '=', 'klasifikasis.id')
+            ->select(
+                'klasifikasis.klasifikasi',
+                DB::raw('COUNT(informasi_publiks.id) as total')
+            )
+            ->groupBy('klasifikasis.klasifikasi')
+            ->pluck('total', 'klasifikasis.klasifikasi');
+
         $today = Visitor::whereDate('created_at', Carbon::today())->count();
         $thisWeek = Visitor::whereBetween('created_at', [
             Carbon::now()->startOfWeek(),
@@ -25,7 +36,7 @@ class HalamanController extends Controller
         $total = Visitor::count();
         $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
         $lokasi = Lokasi::all();
-        return view('halaman/index', compact('klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
+        return view('halaman/index', compact('jumlahKlasifikasi','klasifikasis','today', 'thisWeek', 'thisMonth', 'thisYear', 'total', 'lokasi'));
     }
 
     function profil()

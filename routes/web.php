@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\KlasifikasiController;
@@ -73,13 +74,21 @@ Route::post('/sesi/login', [SessionController::class, 'login']);
 Route::get('/sesi/logout', [SessionController::class, 'logout'])->name('logout');
 
 // Dashboard Admin
-Route::prefix('admin')->name('admin.')
-    ->middleware('admin') // 🔥 proteksi
+// Route::prefix('admin')->name('admin.')
+//     ->middleware('admin') // 🔥 proteksi
+//     ->group(function () {
+
+//     Route::get('/', function () {
+//         return view('be.index');
+//     })->name('dashboard');
+
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware('admin')
     ->group(function () {
 
-    Route::get('/', function () {
-        return view('be.index');
-    })->name('dashboard');
+        Route::get('/', [AdminController::class, 'index'])
+            ->name('dashboard');
 
     // Klasifikasi
     Route::controller(KlasifikasiController::class)->group(function () {

@@ -2,7 +2,7 @@
 @section('konten')
 <main class="main">
 <!-- Hero Section -->
-    <section id="hero" class="hero section">
+      <section id="hero" class="hero section">
 
         <div class="container">
           <div class="row gy-4">
@@ -36,29 +36,47 @@
   
           <div class="row gy-4">
   
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="card" style="background: linear-gradient(to right, #d1fbff, #478CCF);">
-                {{-- <img src="assets/img/1.png" class="img-fluid" alt=""> --}}
-                <a href="/daftar-informasi-publik/1"><h3>Informasi Publik Secara Berkala</h3></a>
-                <p>Merupakan informasi yang wajib disediakan dan diumumkan secara berkala</p>
-              </div>
-            </div><!-- End Card Item -->
-  
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="card" style="background: linear-gradient(to right, #d1fbff, #478CCF);">
-                {{-- <img src="assets/img/2.png" class="img-fluid" alt=""> --}}
-                <a href="/daftar-informasi-publik/3" ><h3>Informasi Publik Serta Merta</h3></a>
-                <p>Informasi yang dapat mengancam hajat hidup orang banyak dan ketertiban umum</p>
-              </div>
-            </div><!-- End Card Item -->
-  
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="card" style="background: linear-gradient(to right, #d1fbff, #478CCF);">
-                {{-- <img src="assets/img/4.png" class="img-fluid" alt=""> --}}
-                <a href="/daftar-informasi-publik/2" ><h3>Informasi Publik Setiap Saat</h3></a>
-                <p>Informasi yang wajib disediakan oleh Badan Publik</p>
-              </div>
-            </div><!-- End Card Item -->
+            <div class="row1" id="stats">
+               <div style="padding-top: 30px;width: 90%; margin: 0 auto;" class="max-auto">
+                  <div class="row">
+                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100" >
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-peraturan" data-asw-org-font-size="16" style="font-size: 16px;">
+                              <div class="stat-icon-box">
+                                 <i class="bi bi-info"></i>
+                              </div>
+                              <div class="stat-content">
+                                 <h3 class="stat-title" data-asw-org-font-size="15" style="font-size: 15px;">Informasi Publik Secara Berkala</h3>
+                                 <p class="stat-number" data-asw-org-font-size="30" style="font-size: 30px;">{{ $jumlahKlasifikasi['Informasi Publik Secara Berkala'] ?? 0 }}</p>
+                              </div>
+                           </a>
+                     </div>
+
+                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200" >
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-monografi" data-asw-org-font-size="16" style="font-size: 16px;">
+                              <div class="stat-icon-box">
+                                 <i class="bi bi-newspaper"></i>
+                              </div>
+                              <div class="stat-content">
+                                 <h3 class="stat-title" data-asw-org-font-size="15" style="font-size: 15px;">Informasi Publik Serta Merta</h3>
+                                 <p class="stat-number" data-asw-org-font-size="30" style="font-size: 30px;"> {{ $jumlahKlasifikasi['Informasi Publik Serta Merta'] ?? 0 }}</p>
+                              </div>
+                           </a>
+                     </div>
+
+                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300" >
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-putusan" data-asw-org-font-size="16" style="font-size: 16px;">
+                              <div class="stat-icon-box">
+                                 <i class="bi bi-infinity"></i>
+                              </div>
+                              <div class="stat-content">
+                                 <h3 class="stat-title" data-asw-org-font-size="15" style="font-size: 15px;">Informasi Publik Setiap Saat</h3>
+                                 <p class="stat-number" data-asw-org-font-size="30" style="font-size: 30px;">{{ $jumlahKlasifikasi['Informasi Publik Setiap Saat'] ?? 0 }}</p>
+                              </div>
+                           </a>
+                     </div>
+                  </div>
+               </div>
+        </div>
   
           </div>
   
@@ -79,7 +97,7 @@
   
           <div class="row gy-4">
             <div class="justify-content-custom mb-10 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-              <div id="map" style="height: 500px;outline-style:solid;border-radius:10px;"></div>
+              <div id="map" style="height: 500px;border-radius:10px;"></div>
             </div>
           </div>
 
@@ -130,6 +148,7 @@
   
       <!-- Clients Section -->
       <section id="clients" class="clients section" style="background-color:#f4faff;">
+      {{-- <section id="clients" class="clients section" style="background-color:#f4faff;background-image: url({{ asset('assets/img/background-portal-ppid.png')}});"> --}}
   
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -192,108 +211,30 @@
       </section>
       <!-- /Clients Section -->
 
-      <!-- Contact Section -->
-      <section id="contact" class="contact section">
-
-        <!-- Section Title -->
-        <div class="container section-title">
-          <h2>Kontak</h2>
-          <p>Kontak Kami</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-          <div class="row gy-4">
-
-            <div class="col-lg-6">
-
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <div class="info-item" >
-                    <i class="bi bi-geo-alt"></i>
-                    <h3>Alamat</h3>
-                    <p>Jl. Proklamasi No.56, RT.10/RW.2, Pegangsaan, Kec. Menteng, Kota Jakarta Pusat</p>
-                    <p>DKI Jakarta, ID 10320</p>
+      <div class="row" id="portal-jdih">
+            <div style="width: 90%; margin: 0 auto;" class="max-auto">
+               <div>
+                  <h2 class="header-portal-jdihn" data-asw-org-font-size="36" style="font-size: 36px;">PORTAL BAKAMLA RI</h2>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                     <p class="desc-portal-jdihn" style="line-height: 1.65; font-size: 16px;" data-asw-org-font-size="16">
+                        Kunjungi portal utama BAKAMLA RI untuk akses lebih luas ke jaringan dokumentasi hukum nasional
+                        yang melibatkan berbagai instansi terkait di Indonesia.
+                     </p>
                   </div>
-                </div><!-- End Info Item -->
 
-                <div class="col-md-6">
-                  <div class="info-item">
-                    <i class="bi bi-telephone"></i>
-                    <h3>Telepon Kami</h3>
-                    <p>+62 8212 5189 898</p>
-                    <p>+181</p>
+                  <div class="col-md-3 col-sm-12"></div>
+
+                  <div class="col-md-3 col-sm-3 pt-3 pt-md-0" style="text-align: center;">
+                     <a href="https://bakamla.go.id" target="_blank" class="btn-kunjungi-portal d-flex align-items-center" data-asw-org-font-size="16" style="font-size: 16px;">
+                     Kunjungi Portal
+                     <img src="{{ asset('assets/img/arrow-right.png')}}" style="width: 20px; height: 20px;">
+                     </a>
                   </div>
-                </div><!-- End Info Item -->
-
-                <div class="col-md-6">
-                  <div class="info-item">
-                    <i class="bi bi-envelope"></i>
-                    <h3>Email Kami</h3>
-                    <p>infoppid@bakamla.go.id</p>
-                    <p>contactcenter@bakamla.go.id</p>
-                  </div>
-                </div><!-- End Info Item -->
-
-                <div class="col-md-6">
-                  <div class="info-item">
-                    <i class="bi bi-clock"></i>
-                    <h3>Jam Kerja</h3>
-                    <p>Senin - Jumat</p>
-                    <p>08:00 - 16:00</p>
-                  </div>
-                </div><!-- End Info Item -->
-
-              </div>
-
+               </div>
             </div>
-
-            <div class="col-lg-6" style="background-color:#F0F8FF;border-radius:5px;">
-              @if(session('success'))
-              <div class="toast-container position-fixed top-0 end-0 p-3">
-                <div id="liveToast" class="toast show align-items-center text-bg-success border-0">
-                  <div class="d-flex">
-                    <div class="toast-body">
-                      {{ session('success') }}
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-                  </div>
-                </div>
-              </div>
-              @endif
-              <form action="{{ route('pesan.store') }}" method="POST">
-                @csrf
-
-                <div class="row gy-4">
-
-                <div class="col-md-6" style="padding-top:15px;">
-                <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
-                <p style="color:red; font-size:12px;">* Nama Wajib Di Isi</p>
-                </div>
-
-                <div class="col-md-6" style="padding-top:15px;">
-                <input type="email" class="form-control" name="email" placeholder="Email Anda" required>
-                <p style="color:red; font-size:12px;">* Email Wajib Di Isi</p>
-                </div>
-
-                <div class="col-12">
-                <textarea class="form-control" name="pesan" rows="6" placeholder="Pesan Anda" required></textarea>
-                <p style="color:red; font-size:12px;">* Pesan Wajib Di Isi</p>
-                </div>
-
-                <div class="col-12 text-center">
-                  <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                </div>
-
-                </div>
-              </form>
-            </div><!-- End Contact Form -->
-
-          </div>
-
-        </div>
-
-      </section><!-- /Contact Section -->
+      </div>
   
     </main>
 @endsection

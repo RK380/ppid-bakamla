@@ -13,33 +13,99 @@ use Carbon\Carbon;
 
 class InformasiPublikController extends Controller
 {
-    public function home($id=null)
+    public function home(Request $request, $uuid = null)
     {
         $today = Visitor::whereDate('created_at', Carbon::today())->count();
         $thisWeek = Visitor::whereBetween('created_at', [
             Carbon::now()->startOfWeek(),
             Carbon::now()->endOfWeek()
         ])->count();
+
         $thisMonth = Visitor::whereMonth('created_at', Carbon::now()->month)
                             ->whereYear('created_at', Carbon::now()->year)
                             ->count();
+
         $thisYear = Visitor::whereYear('created_at', Carbon::now()->year)->count();
+
         $total = Visitor::count();
-        $datas = InformasiPublik::where('klasifikasi_id', $id)->orderBy('created_at', 'desc')->get();
-        $klasifikasis = Klasifikasi::orderBy('created_at', 'desc')->get();
+
+        $klasifikasis = Klasifikasi::latest()->get();
         $lokasi = Lokasi::all();
-        //dd($klasifikasis);
-        return view('infopub', [
-            'title' => 'Informasi Publik',
-            'datas' => $datas,
-            'klasifikasis' => $klasifikasis,
-            // 'profilkantor' => ProfilKantor::first()
-        ], compact('today', 'thisWeek', 'thisMonth', 'thisYear', 'total','lokasi'));
+
+        $klasifikasi = null;
+
+        if ($uuid) {
+            $klasifikasi = Klasifikasi::where('uuid', $uuid)->firstOrFail();
+        }
+
+        // ==============================
+        // SATU QUERY SAJA
+        // ==============================
+
+        $query = InformasiPublik::with('klasifikasi');
+
+        // Filter jenis informasi
+        if ($klasifikasi) {
+            $query->where('klasifikasi_id', $klasifikasi->id);
+        }
+
+        // Cari Judul
+        if ($request->filled('search')) {
+            $query->where('judul', 'like', '%' . $request->search . '%');
+        }
+
+        // Filter Tahun
+        if ($request->filled('tahun')) {
+            $query->whereYear('created_at', $request->tahun);
+        }
+
+        // Sorting
+        switch ($request->sort) {
+
+            case 'terlama':
+                $query->oldest();
+                break;
+
+            case 'az':
+                $query->orderBy('judul', 'asc');
+                break;
+
+            case 'za':
+                $query->orderBy('judul', 'desc');
+                break;
+
+            default:
+                $query->latest();
+                break;
+        }
+
+        // PAGINATE PALING TERAKHIR
+        // Preserve query string on pagination
+        $documents = $query->paginate(5)->appends(request()->query());
+
+        // Tahun
+        $tahunList = InformasiPublik::selectRaw('YEAR(created_at) tahun')
+                        ->distinct()
+                        ->orderByDesc('tahun')
+                        ->pluck('tahun');
+
+        return view('infopub', compact(
+            'documents',
+            'klasifikasis',
+            'klasifikasi',
+            'lokasi',
+            'today',
+            'thisWeek',
+            'thisMonth',
+            'thisYear',
+            'total',
+            'tahunList'
+        ));
     }
 
-    public function unduh($id)
+    public function unduh($uuid)
     {
-        $data = InformasiPublik::findorfail($id);
+        $data = InformasiPublik::where('uuid', $uuid)->firstOrFail();
         $mypath = public_path().'/'.$data->file;
         // dd($mypath);
 

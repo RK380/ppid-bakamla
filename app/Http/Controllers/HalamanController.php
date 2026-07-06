@@ -162,7 +162,7 @@ class HalamanController extends Controller
         $pdf = Pdf::loadView('halaman/infopsb/view', compact('user'));
         return $user->stream('file-'.$user->foto.'.pdf');
 
-    return view('halaman/infopsb/view', ['pdfPath' => $upld->foto]);
+        return view('halaman/infopsb/view', ['pdfPath' => $upld->foto]);
     }
 
     function infopss()

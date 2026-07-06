@@ -9,7 +9,7 @@
     <h5 style="text-align:center;" data-aos="fade-up">PILIH KATEGORI PEMOHON</h5>
 
     <div class="container" data-aos="fade-up">
-      <div class="content-panel" style="padding:15px;background-color:#f5f5f5;margin-bottom:5px;">
+      <div class="content-panel" style="padding:15px;background-color:#f5f5f5;margin-bottom:5px;border-radius:10px;">
         
                         <div class="row gy-4">
 
@@ -39,42 +39,50 @@
       
               <section id="stats" class="stats section">
 
-                <div class="container aos-init aos-animate">
-          
-                  <div class="row gy-3">
-          
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                      <div class="stats-item d-flex align-items-center w-100 h-100">
-                        <i class="bi bi-person-plus color-blue flex-shrink-0"></i>
-                        <div>
-                          <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="0" class="purecounter">0</span>
-                          <p>Total Pengguna</p>
+                <div class="container">
+                  <div class="row gy-4">
+                    <div class="row1" id="stats">
+                      <div style="padding-top: 30px;width: 90%; margin: 0 auto;" class="max-auto">
+                          <div class="row">
+                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300" >
+                                  <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-peraturan" data-asw-org-font-size="16" style="font-size: 16px;">
+                                      <div class="stat-icon-box">
+                                        <i class="bi bi-person-plus"></i>
+                                      </div>
+                                      <div class="stat-content">
+                                        <h3 class="stat-title" data-asw-org-font-size="15" style="font-size: 15px;">Total Pengguna</h3>
+                                        <p class="stat-number" data-asw-org-font-size="30" style="font-size: 30px;"><?php echo e($jumlahKlasifikasi['Informasi Publik Secara Berkala'] ?? 0); ?></p>
+                                      </div>
+                                  </a>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="400" >
+                                  <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-monografi" data-asw-org-font-size="16" style="font-size: 16px;">
+                                      <div class="stat-icon-box">
+                                        <i class="bi bi-person-vcard"></i>
+                                      </div>
+                                      <div class="stat-content">
+                                        <h3 class="stat-title" data-asw-org-font-size="15" style="font-size: 15px;">Lembaga/Instansi</h3>
+                                        <p class="stat-number" data-asw-org-font-size="30" style="font-size: 30px;"> <?php echo e($jumlahKlasifikasi['Informasi Publik Serta Merta'] ?? 0); ?></p>
+                                      </div>
+                                  </a>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="500" >
+                                  <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-putusan" data-asw-org-font-size="16" style="font-size: 16px;">
+                                      <div class="stat-icon-box">
+                                        <i class="bi bi-person"></i>
+                                      </div>
+                                      <div class="stat-content">
+                                        <h3 class="stat-title" data-asw-org-font-size="15" style="font-size: 15px;">Perorangan</h3>
+                                        <p class="stat-number" data-asw-org-font-size="30" style="font-size: 30px;"><?php echo e($jumlahKlasifikasi['Informasi Publik Setiap Saat'] ?? 0); ?></p>
+                                      </div>
+                                  </a>
+                            </div>
                         </div>
-                      </div>
-                    </div><!-- End Stats Item -->
-          
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                      <div class="stats-item d-flex align-items-center w-100 h-100">
-                        <i class="bi bi-person-vcard color-orange flex-shrink-0" style="color: #ee6c20;"></i>
-                        <div>
-                          <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="0" class="purecounter">0</span>
-                          <p>Lembaga/Instansi</p>
-                        </div>
-                      </div>
-                    </div><!-- End Stats Item -->
-          
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                      <div class="stats-item d-flex align-items-center w-100 h-100">
-                        <i class="bi bi-person color-green flex-shrink-0" style="color: #15be56;"></i>
-                        <div>
-                          <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="0" class="purecounter">0</span>
-                          <p>Perorangan</p>
-                        </div>
-                      </div>
-                    </div><!-- End Stats Item -->
-          
+                    </div>
                   </div>
-          
+                  </div>
                 </div>
   
               </section>

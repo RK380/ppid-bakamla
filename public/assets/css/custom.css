@@ -1,0 +1,560 @@
+    .main-background {
+             background: #0f172a !important;
+             z-index: 100;
+             position: relative;
+             overflow: visible;
+             width: 100%;
+          }
+          
+          /* Cinematic Slider Background Layers */
+          .bg-slide-layer {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-size: cover;
+             background-position: top center;
+             background-repeat: no-repeat;
+             z-index: -3;
+             opacity: 0;
+             will-change: transform, opacity;
+             transition: opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+             pointer-events: none !important;
+          }
+
+          .main-background:before {
+             content: "";
+             z-index: -1;
+             width: 100%;
+             height: 100%;
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             margin: auto;
+             background: linear-gradient(90deg, #0F172A 0%, rgba(15, 23, 42, 0.2) 100%);
+             pointer-events: none;
+          }
+
+          /* --- PRESETS FOR PREMIUM STYLES & TRANSITIONS --- */
+          .bg-slide-layer.active-init {
+             opacity: 1;
+             transform: scale(1);
+          }
+
+    .stats-container {
+            margin-top: -60px; /* Floating effect */
+            position: relative;
+            z-index: 100; /* PERBAIKAN: Harus lebih besar dari 100 (main-background) */
+            margin-bottom: 40px;
+        }
+
+        .card-stat {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 26px 22px;
+            text-decoration: none;
+            will-change: transform, box-shadow;
+        }
+
+        .card-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .card-stat:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+        }
+
+        .card-stat:hover::before {
+            opacity: 1;
+        }
+
+        /* Dekorasi Lingkaran Pudar */
+        .card-stat::after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: -25px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            opacity: 0.06;
+            z-index: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .card-stat:hover::after {
+            transform: scale(1.2);
+        }
+
+        .stat-icon-box {
+            width: 62px;
+            height: 62px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-right: 22px;
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: #ffffff !important;
+        }
+
+        .card-stat:hover .stat-icon-box {
+            transform: scale(1.15) rotate(12deg);
+        }
+
+        .stat-content {
+            z-index: 1;
+        }
+
+        .stat-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Warna & Gradient Spesifik per Kategori */
+        /* Peraturan (Biru) */
+        .stat-peraturan .stat-icon-box {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+        }
+        .stat-peraturan::after { background-color: #2563eb; }
+        .stat-peraturan::before { background: #2563eb; }
+        .stat-peraturan:hover { border-color: rgba(37, 99, 235, 0.35); }
+        .stat-peraturan:hover .stat-title { color: #1d4ed8; }
+        .stat-peraturan:hover .stat-number { color: #1d4ed8; }
+
+        /* Monografi (Hijau) */
+        .stat-monografi .stat-icon-box {
+            background: linear-gradient(135deg, #10b981, #047857);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+        }
+        .stat-monografi::after { background-color: #16a34a; }
+        .stat-monografi::before { background: #16a34a; }
+        .stat-monografi:hover { border-color: rgba(16, 185, 129, 0.35); }
+        .stat-monografi:hover .stat-title { color: #047857; }
+        .stat-monografi:hover .stat-number { color: #047857; }
+
+        /* Artikel (Kuning/Orange) */
+        .stat-artikel .stat-icon-box {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+        }
+        .stat-artikel::after { background-color: #ea580c; }
+        .stat-artikel::before { background: #ea580c; }
+        .stat-artikel:hover { border-color: rgba(245, 158, 11, 0.35); }
+        .stat-artikel:hover .stat-title { color: #d97706; }
+        .stat-artikel:hover .stat-number { color: #d97706; }
+
+        /* Putusan (Merah) */
+        .stat-putusan .stat-icon-box {
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.25);
+        }
+        .stat-putusan::after { background-color: #dc2626; }
+        .stat-putusan::before { background: #dc2626; }
+        .stat-putusan:hover { border-color: rgba(239, 68, 68, 0.35); }
+        .stat-putusan:hover .stat-title { color: #b91c1c; }
+        .stat-putusan:hover .stat-number { color: #b91c1c; }
+
+        @media (max-width: 768px) {
+            .stats-container { margin-top: 20px; }
+            .card-stat { margin-bottom: 15px; }
+        }
+
+        /* ==========================================================================
+           CARD STATISTIK MODERN & PREMIUM OVERRIDES
+           ========================================================================== */
+        .card-statistik-modern {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+            will-change: transform, box-shadow;
+        }
+        .card-statistik-modern:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.1);
+            border-color: rgba(37, 99, 235, 0.35);
+        }
+        .stat-icon-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #ffffff;
+            flex-shrink: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .card-statistik-modern:hover .stat-icon-badge {
+            transform: scale(1.18) rotate(10deg);
+        }
+
+        /* Badge Gradients per Theme */
+        .badge-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
+        .badge-green { background: linear-gradient(135deg, #10b981, #047857); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25); }
+        .badge-purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25); }
+        .badge-pink { background: linear-gradient(135deg, #ec4899, #be185d); box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25); }
+        .badge-gold { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25); }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .stat-header-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .stat-meta-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+        .stat-title-modern {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .stat-number-modern {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .stat-card-body {
+            padding: 28px !important;
+        }
+        .stat-chart-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* footer style */
+        .batas-footer {
+            border-bottom: 1px dashed #BDBDBD;
+        }
+
+        .batas-footer a {
+            display: block;
+        }
+
+        .batas-footer a img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .logo-platform {
+            width: 124px;
+            height: 40px;
+            padding: 6.5px 10px 6.5px 8px;
+            gap: 0px;
+            border-radius: 6px 0px 0px 0px;
+            border: 1px 0px 0px 0px;
+            opacity: 0px;
+        }
+
+        .header-footer {
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.55;
+            text-align: left;
+            color: #253144;
+            margin-top: 32px;
+        }
+
+        .desc-footer {
+            font-family: Inter;
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: left;
+            color: #253144;
+        }
+
+        .header-tautan-penting {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+            text-align: left;
+            color: #253144;
+            margin-top: 32px;
+        }
+
+        .item-tautan-penting {
+            margin-bottom: 5px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: left;
+            color: #3C3C3C;
+            display: inline-block;
+        }
+
+        .item-tautan-penting:hover {
+            opacity: .5;
+        }
+
+        .item-link-media-sosial {
+            margin: 10px 0 0 0;
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            color: #757575;
+        }
+
+
+        .unduh-title {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+            margin-top: 10px;
+        }
+
+
+        .footer-title {
+            background: #253144;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #FFFFFF;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+
+        /* CSS Modern untuk Footer */
+    .icon-badge-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        background: rgba(59, 130, 246, 0.08);
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+    .btn-social-modern {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #475569;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-social-modern img {
+        width: 16px !important;
+        height: 16px !important;
+        filter: grayscale(0.2);
+        transition: filter 0.25s ease;
+    }
+    .btn-social-modern:hover {
+        background: #ffffff;
+        border-color: #cbd5e1;
+        color: #0f172a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+    .btn-social-modern:hover img {
+        filter: grayscale(0);
+    }
+    .btn-social-modern.yt:hover {
+        border-color: rgba(239, 68, 68, 0.4);
+        background: rgba(239, 68, 68, 0.02);
+    }
+    .btn-social-modern.ig:hover {
+        border-color: rgba(236, 72, 153, 0.4);
+        background: rgba(236, 72, 153, 0.02);
+    }
+    .btn-social-modern.tw:hover {
+        border-color: rgba(14, 165, 233, 0.4);
+        background: rgba(14, 165, 233, 0.02);
+    }
+    .btn-social-modern.fb:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        background: rgba(59, 130, 246, 0.02);
+    }
+
+    .card-footer-modern {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        height: 100%;
+        will-change: transform, box-shadow;
+    }
+    .card-footer-modern:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
+        border-color: rgba(59, 130, 246, 0.3);
+    }
+    .stat-header-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    .map-header-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        background: #833ab4;
+        background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(248, 250, 252, 0.7);
+        border: 1px solid rgba(226, 232, 240, 0.5);
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        will-change: transform, background, box-shadow;
+    }
+    .stat-row:hover {
+        background: #ffffff;
+        transform: scale(1.03) translateY(-1px);
+        box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+        border-color: rgba(59, 130, 246, 0.2);
+    }
+    .stat-row.total {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.08));
+        border: 1px dashed rgba(239, 68, 68, 0.3);
+    }
+    .stat-row.total:hover {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.12));
+        transform: scale(1.03) translateY(-1px);
+        border: 1px dashed rgba(239, 68, 68, 0.5);
+        box-shadow: 0 6px 16px rgba(239, 68, 68, 0.1);
+    }
+    .stat-row-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #475569;
+    }
+    .stat-row-label i {
+        font-size: 18px;
+    }
+    .stat-row-val {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .btn-kunjungi-portal {
+      width: 176px;
+      height: 40px;
+      padding: 8px 16px;
+      gap: 8px;
+      border-radius: 12px;
+      color: #E74C3C;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+      background: #FFFFFF;
+      border: none;
+    }
+    .header-portal-jdihn {
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: left;
+    color: #FFFFFF;
+    }
+
+    .desc-portal-jdihn {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .instagram-media {
+        min-width:0 !important;
+        max-width:100% !important;
+    }

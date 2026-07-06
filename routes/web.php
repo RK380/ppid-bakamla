@@ -28,9 +28,9 @@ Route::get('/strukturorg', [HalamanController::class,'strukturorg'])->name('hala
 
 //Informasi Publik
 Route::get('/infopsb', [HalamanController::class,'infopsb']);
-Route::get('/daftar-informasi-publik/{id?}', [InformasiPublikController::class, 'home'])->name('infopub');
+Route::get('/daftar-informasi-publik/{uuid}', [InformasiPublikController::class, 'home'])->name('infopub');
 // Route::get('/daftar-informasi-publik/{id}', [InformasiPublikController::class, 'home'])->name('infopub');
-Route::get('/daftar-informasi-publik/download/{id}', [InformasiPublikController::class, 'unduh'])->name('download.infopub');
+Route::get('/daftar-informasi-publik/download/{uuid}', [InformasiPublikController::class, 'unduh'])->name('download.infopub');
 
 //Daftar Informasi 
 Route::get('/daftarinfo', [HalamanController::class, 'daftarinfo'])->name('halaman.daftarinfo');

@@ -1,6 +1,5 @@
 
 <?php $__env->startSection('konten'); ?>
-<main class="main">
 <!-- Hero Section -->
       <section id="hero" class="hero section">
 
@@ -33,9 +32,7 @@
         </div><!-- End Section Title -->
   
         <div class="container">
-  
           <div class="row gy-4">
-  
             <div class="row1" id="stats">
                <div style="padding-top: 30px;width: 90%; margin: 0 auto;" class="max-auto">
                   <div class="row">
@@ -74,12 +71,10 @@
                               </div>
                            </a>
                      </div>
-                  </div>
-               </div>
-        </div>
-  
+                </div>
+             </div>
+           </div>
           </div>
-  
         </div>
   
       </section><!-- /Values Section -->
@@ -97,7 +92,7 @@
   
           <div class="row gy-4">
             <div class="justify-content-custom mb-10 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-              <div id="map" style="height: 500px;outline-style:solid;border-radius:10px;"></div>
+              <div id="map" style="height: 500px;border-radius:10px;"></div>
             </div>
           </div>
 
@@ -105,8 +100,6 @@
         
       </section>
       <!-- End Lokasi Section -->
-
-      
   
       <!-- Services Section -->
       <section id="services" class="services section">
@@ -141,10 +134,6 @@
         </div>
   
       </section><!-- /Services Section -->
-  
-      <!-- Faq Section -->
-      
-      <!-- /Faq Section -->
   
       <!-- Clients Section -->
       <section id="clients" class="clients section" style="background-color:#f4faff;">
@@ -211,31 +200,35 @@
       </section>
       <!-- /Clients Section -->
 
-      <div class="row" id="portal-jdih">
-            <div style="width: 90%; margin: 0 auto;" class="max-auto">
-               <div>
-                  <h2 class="header-portal-jdihn" data-asw-org-font-size="36" style="font-size: 36px;">PORTAL BAKAMLA RI</h2>
-               </div>
-               <div class="row">
-                  <div class="col-md-6 col-sm-6">
-                     <p class="desc-portal-jdihn" style="line-height: 1.65; font-size: 16px;" data-asw-org-font-size="16">
-                        Kunjungi portal utama BAKAMLA RI untuk akses lebih luas ke jaringan dokumentasi hukum nasional
-                        yang melibatkan berbagai instansi terkait di Indonesia.
-                     </p>
-                  </div>
-
-                  <div class="col-md-3 col-sm-12"></div>
-
-                  <div class="col-md-3 col-sm-3 pt-3 pt-md-0" style="text-align: center;">
-                     <a href="https://bakamla.go.id" target="_blank" class="btn-kunjungi-portal d-flex align-items-center" data-asw-org-font-size="16" style="font-size: 16px;">
-                     Kunjungi Portal
-                     <img src="<?php echo e(asset('assets/img/arrow-right.png')); ?>" style="width: 20px; height: 20px;">
-                     </a>
-                  </div>
-               </div>
-            </div>
-      </div>
+      <section id="section-clients" class="clients section">
+        <div class="row" style="background-image: url( <?php echo e(asset('assets/img/background-portal-ppid.png')); ?> );
+         background-color: #E74C3C;
+         padding-top: 72px;
+         padding-bottom: 72px;
+         margin-top: 36px;">
+              <div style="width: 90%; margin: 0 auto;" class="max-auto">
+                 <div>
+                    <h2 class="header-portal-jdihn" data-asw-org-font-size="36" style="font-size: 36px;">PORTAL BAKAMLA RI</h2>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                       <p class="desc-portal-jdihn" style="line-height: 1.65; font-size: 16px;" data-asw-org-font-size="16">
+                          Kunjungi portal utama BAKAMLA RI untuk akses lebih luas ke jaringan informasi maritim nasional
+                          yang melibatkan berbagai instansi terkait di Indonesia.
+                       </p>
+                    </div>
   
-    </main>
+                    <div class="col-md-3 col-sm-12"></div>
+  
+                    <div class="col-md-3 col-sm-3 pt-3 pt-md-0" style="text-align: center;">
+                       <a href="https://bakamla.go.id" target="_blank" class="btn-kunjungi-portal d-flex align-items-center" data-asw-org-font-size="16" style="font-size: 16px;">
+                       Kunjungi Portal
+                       <img src="<?php echo e(asset('assets/img/arrow-right.png')); ?>" style="width: 20px; height: 20px;">
+                       </a>
+                    </div>
+                 </div>
+              </div>
+        </div>
+      </section>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts/aplikasi', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/ppid/resources/views/halaman/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.aplikasi', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/ppid/resources/views/halaman/index.blade.php ENDPATH**/ ?>

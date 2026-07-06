@@ -582,18 +582,14 @@
                         <div class="row">
                             <div class="col-md-2 col-3">
                                 <div class="doc-thumb-wrapper">
-                                    {{-- @if ($document->gambar_sampul)
-                                    <img src="{{ asset('storage/common/dokumen/' . $document->gambar_sampul) }}"
-                                         alt="Cover"
-                                         class="img-fluid shadow-sm"
-                                         style="max-height: 110px;"
-                                         onerror="this.onerror=null;this.src='{{ asset('storage/common/dokumen/file-pdf.png') }}';">
+                                    @if($item->thumbnail)
+                                    <img src="{{ asset($item->thumbnail) }}"
+                                        class="img-fluid rounded shadow-sm"
+                                        style="height:120px;width:90px;object-fit:cover;">
                                     @else
-                                    <img src="{{ asset('storage/common/dokumen/file-pdf.png') }}"
-                                         alt="Default PDF"
-                                         class="img-fluid"
-                                         style="max-height: 90px;">
-                                    @endif --}}
+                                    <img src="{{ asset('assets/img/pdf.png') }}"
+                                        class="img-fluid">
+                                    @endif
                                 </div>
                             </div>
 

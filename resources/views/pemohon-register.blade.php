@@ -42,7 +42,7 @@
                 <div class="container">
                   <div class="row gy-4">
                     <div class="row1" id="stats">
-                      <div style="padding-top: 30px;width: 90%; margin: 0 auto;" class="max-auto">
+                      <div style="margin: 0 auto;" class="max-auto">
                           <div class="row">
                             <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300" >
                                   <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-peraturan" data-asw-org-font-size="16" style="font-size: 16px;">

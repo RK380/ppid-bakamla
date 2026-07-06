@@ -547,7 +547,14 @@
                         <div class="row">
                             <div class="col-md-2 col-3">
                                 <div class="doc-thumb-wrapper">
-                                    
+                                    <?php if($item->thumbnail): ?>
+                                    <img src="<?php echo e(asset($item->thumbnail)); ?>"
+                                        class="img-fluid rounded shadow-sm"
+                                        style="height:120px;width:90px;object-fit:cover;">
+                                    <?php else: ?>
+                                    <img src="<?php echo e(asset('assets/img/pdf.png')); ?>"
+                                        class="img-fluid">
+                                    <?php endif; ?>
                                 </div>
                             </div>
 

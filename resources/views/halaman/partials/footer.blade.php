@@ -1,4 +1,5 @@
-<div class="container footer-top" id="tautan">
+<div class="max-auto" id="tautan" style="width: 90%; margin: 0 auto;" >
+    <hr>
       <div class="row batas-footer py-4">
             <div class="col-mb-6 col-sm-6">
                 <div class="row">

@@ -1,36 +1,12 @@
-<?php $__env->startSection('style'); ?>
-<style>
-    #myDataTable {
-        font-size: 13px;
-    }
-
-    .dataTables_length {
-        font-size: 13px;
-    }
-
-    .dataTables_filter {
-        font-size: 13px;
-    }
-
-    .dataTables_info {
-        font-size: 13px;
-    }
-
-    .dataTables_paginate {
-        font-size: 13px;
-    }
-</style>
-<?php $__env->stopSection(); ?>
-
     <!-- Page Title -->
-    <div class="page-title" style="background-image:linear-gradient(rgb(199 199 199 / 50%), rgb(221 221 221 / 80%)),url('<?php echo e(asset('assets/img/bg-original.jpg')); ?>');background-size: cover;
-      background-position: center;">
+    <div class="page-title" style="background-image:linear-gradient(rgb(199 199 199 / 50%), rgb(221 221 221 / 80%)),url('<?php echo e(asset('assets/img/bannerinfo.png')); ?>');background-size: cover;
+      background-position: bottom;">
       <div class="heading" style="margin-top:100px">
         <div class="container" data-aos="fade-up">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>Informasi Publik</h1>
-              <p class="mb-0">Dapatkan informasi terbaru tentang perkembangan kejadian maritim, informasi keamanan laut, serta artikel mendalam yang membahas isu-isu penting seputar PPID BAKAMLA RI</p>
+              <p class="mb-0" style="font-weight:500">Dapatkan informasi terbaru tentang perkembangan kejadian maritim, informasi keamanan laut, serta artikel mendalam yang membahas isu-isu penting seputar PPID BAKAMLA RI</p>
             </div>
           </div>
         </div>
@@ -38,13 +14,12 @@
       <nav class="breadcrumbs" data-aos="fade-up">
         <div class="container" data-aos="fade-up">
           <ol>
-            <li><a href="/">Home</a></li>
+            <li><a href="/"><i class="bi bi-house"></i> Home</a></li>
             <li class="current"><?php echo e($klasifikasi?->klasifikasi ?? 'Informasi Publik'); ?></li>
           </ol>
         </div>
       </nav>
     </div><!-- End Page Title -->
-    
 
     <div class="container" data-aos="fade-up">
     <style>

@@ -1,36 +1,12 @@
-@section('style')
-<style>
-    #myDataTable {
-        font-size: 13px;
-    }
-
-    .dataTables_length {
-        font-size: 13px;
-    }
-
-    .dataTables_filter {
-        font-size: 13px;
-    }
-
-    .dataTables_info {
-        font-size: 13px;
-    }
-
-    .dataTables_paginate {
-        font-size: 13px;
-    }
-</style>
-@endsection
-
     <!-- Page Title -->
-    <div class="page-title" style="background-image:linear-gradient(rgb(199 199 199 / 50%), rgb(221 221 221 / 80%)),url('{{ asset('assets/img/bg-original.jpg') }}');background-size: cover;
-      background-position: center;">
+    <div class="page-title" style="background-image:linear-gradient(rgb(199 199 199 / 50%), rgb(221 221 221 / 80%)),url('{{ asset('assets/img/bannerinfo.png') }}');background-size: cover;
+      background-position: bottom;">
       <div class="heading" style="margin-top:100px">
         <div class="container" data-aos="fade-up">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>Informasi Publik</h1>
-              <p class="mb-0">Dapatkan informasi terbaru tentang perkembangan kejadian maritim, informasi keamanan laut, serta artikel mendalam yang membahas isu-isu penting seputar PPID BAKAMLA RI</p>
+              <p class="mb-0" style="font-weight:500">Dapatkan informasi terbaru tentang perkembangan kejadian maritim, informasi keamanan laut, serta artikel mendalam yang membahas isu-isu penting seputar PPID BAKAMLA RI</p>
             </div>
           </div>
         </div>
@@ -38,51 +14,12 @@
       <nav class="breadcrumbs" data-aos="fade-up">
         <div class="container" data-aos="fade-up">
           <ol>
-            <li><a href="/">Home</a></li>
+            <li><a href="/"><i class="bi bi-house"></i> Home</a></li>
             <li class="current">{{ $klasifikasi?->klasifikasi ?? 'Informasi Publik' }}</li>
           </ol>
         </div>
       </nav>
     </div><!-- End Page Title -->
-    {{-- <div class="container" data-aos="fade-up">
-        <div class="content-panel" style="padding:15px;background-color:#f5f5f5;margin-bottom:5px;border-radius:10px;">
-            <div class="content-body-panel">
-                <div class="row">
-                <div class="container">
-                  <h5 data-aos="fade-up" data-aos-delay="400" style="text-align: center">Daftar Informasi</h5>
-                    <div class="row">
-                      <div data-aos="fade-up" data-aos-delay="400" class="col-12">
-                        <table id="myDataTable" class="table table-striped" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Dibuat</th>
-                                    <th>Informasi</th>
-                                    <th>Judul</th>
-                                    <th>Pengelola</th>
-                                    <th>File</th>
-                                    <!-- <th>Ukuran</th> -->
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($datas as $item)                            
-                                <tr>
-                                    <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$item->created_at)->isoFormat('D MMMM Y HH:mm') }}</td>
-                                    <td>{{ $item->klasifikasi->klasifikasi }}</td>
-                                    <td>{{ $item->judul }}</td>
-                                    <td>HUMAS</td>
-                                    <td>{{ pathinfo(storage_path().$item->file, PATHINFO_EXTENSION) }}</td>
-                                    <td><a href="{{ route('download.infopub', $item->uuid) }}" target="_blank" class="btn btn-sm btn-primary circle"> <i class="bi bi-arrow-down"></i> </a></td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 
     <div class="container" data-aos="fade-up">
     <style>

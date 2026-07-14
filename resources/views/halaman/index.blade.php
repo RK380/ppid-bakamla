@@ -7,10 +7,10 @@
           <div class="row gy-4">
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
               <h1 data-aos="fade-up">Layanan Informasi Publik</h1>
-              <p data-aos="fade-up" data-aos-delay="100">Hallo Sobat Kamla, Anda dapat dengan mudah memperoleh informasi melalui PPID BAKAMLA</p>
+              <p data-aos="fade-up" data-aos-delay="100" style="color:#ffffff">Hallo Sobat Kamla, Anda dapat dengan mudah memperoleh informasi melalui PPID BAKAMLA</p>
               <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
                 <a href="/profil" class="btn-get-started">Selengkapnya <i class="bi bi-arrow-right"></i></a>
-                <a href="https://youtu.be/iCS7IKWb9sM?si=4pGrqy_fWsVp5CbM" class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"><i class="bi bi-play-circle"></i><span>Tonton Video</span></a>
+                <a href="https://youtu.be/iCS7IKWb9sM?si=4pGrqy_fWsVp5CbM" class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"><i class="bi bi-play-circle"></i><span style="color:#f4faff">Tonton Video</span></a>
               </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
@@ -37,7 +37,7 @@
                <div style="margin: 0 auto;" class="max-auto">
                   <div class="row">
                      <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100" >
-                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-peraturan" data-asw-org-font-size="16" style="font-size: 16px;">
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/c0a1e515-e740-4000-8882-32d16262e1d1" class="card-stat stat-peraturan" data-asw-org-font-size="16" style="font-size: 16px;">
                               <div class="stat-icon-box">
                                  <i class="bi bi-info"></i>
                               </div>
@@ -49,7 +49,7 @@
                      </div>
 
                      <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200" >
-                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-monografi" data-asw-org-font-size="16" style="font-size: 16px;">
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/1c8d7b70-9fb0-4850-9dc6-9bb84ec58ca6" class="card-stat stat-monografi" data-asw-org-font-size="16" style="font-size: 16px;">
                               <div class="stat-icon-box">
                                  <i class="bi bi-newspaper"></i>
                               </div>
@@ -61,7 +61,7 @@
                      </div>
 
                      <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300" >
-                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-artikel" data-asw-org-font-size="16" style="font-size: 16px;">
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/464b60ee-b060-42ae-8aca-7deb637d83bd" class="card-stat stat-artikel" data-asw-org-font-size="16" style="font-size: 16px;">
                               <div class="stat-icon-box">
                                  <i class="bi bi-infinity"></i>
                               </div>
@@ -73,7 +73,7 @@
                      </div>
 
                      <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="400" >
-                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/" class="card-stat stat-putusan" data-asw-org-font-size="16" style="font-size: 16px;">
+                           <a href="https://ppid.bakamla.go.id/daftar-informasi-publik/791999af-2420-41a8-8d4b-9c5255ea67e8" class="card-stat stat-putusan" data-asw-org-font-size="16" style="font-size: 16px;">
                               <div class="stat-icon-box">
                                  <i class="bi bi-dash-circle"></i>
                               </div>

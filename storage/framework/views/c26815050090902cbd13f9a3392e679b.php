@@ -17,21 +17,21 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <a href="https://ppid.bakamla.go.id" class="item-tautan-penting">Beranda</a>
-                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/sejarah">Sekilas Sejarah</a>
-                        <a href="#" class="item-tautan-penting">Berita PPID BAKAMLA RI</a>
-                        <a href="https://ppid.bakamla.go.id/{id}" class="item-tautan-penting">Informasi Publik</a>
+                        <a href="https://ppid.bakamla.go.id" class="item-tautan-penting" style="font-family: Inter;"><i class="bi bi-house" style="color: #3b82f6;"></i> Beranda</a>
+                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/sejarah"><i class="bi bi-hourglass" style="color: #3b82f6;"></i> Sejarah</a>
+                        <a href="#" class="item-tautan-penting"><i class="bi bi-newspaper" style="color: #3b82f6;"></i> Berita PPID BAKAMLA RI</a>
+                        <a href="https://ppid.bakamla.go.id/{id}" class="item-tautan-penting"><i class="bi bi-file-earmark" style="color: #3b82f6;"></i> Informasi Publik</a>
                     </div>
                     <div class="col-4">
-                        <a href="https://bakamla.go.id" target="_blank" class="item-tautan-penting">Web Bakamla RI</a>
-                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/liputan">Liputan PPID BAKAMLA RI</a>
-                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/sosial-media">Sosial Media</a>
-                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/survey-kepuasan">Survei Kepuasan</a>
+                        <a href="https://bakamla.go.id" target="_blank" class="item-tautan-penting"><i class="bi bi-globe" style="color: #3b82f6;"></i> Web Bakamla RI</a>
+                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/liputan"><i class="bi bi-camera-video" style="color: #3b82f6;"></i> Liputan PPID BAKAMLA RI</a>
+                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/sosial-media"><i class="bi bi-share" style="color: #3b82f6;"></i> Sosial Media</a>
+                        <a class="item-tautan-penting" href="https://ppid.bakamla.go.id/survey-kepuasan"><i class="bi bi-clipboard" style="color: #3b82f6;"></i> Survei Kepuasan</a>
                     </div>
                     <div class="col-4">
-                        <a href="https://ppid.bakamla.go.id/faq" class="item-tautan-penting" href="https://ppid.bakamla.go.id/faq">FAQ</a>
-                        <a href="https://jdih.bakamla.go.id/kebijakan-privasi" class="item-tautan-penting" >Kebijakan Privasi</a>
-                        <a class="item-tautan-penting">Kontak Kami</a>
+                        <a href="https://ppid.bakamla.go.id/faq" class="item-tautan-penting" href="https://ppid.bakamla.go.id/faq"><i class="bi bi-question-circle" style="color: #3b82f6;"></i> FAQ</a>
+                        <a href="https://jdih.bakamla.go.id/kebijakan-privasi" class="item-tautan-penting"><i class="bi bi-shield-check" style="color: #3b82f6;"></i> Kebijakan Privasi</a>
+                        <a class="item-tautan-penting"><i class="bi bi-headset" style="color: #3b82f6;"></i> Kontak Kami</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                             <i class="bi bi-telephone" style="font-size: 20px; color: #3b82f6;"></i>
                         </div>
                         <div>
-                            <p class="mb-0" style="font-size: 14px; color: #475569; font-weight: 500;">(021) 181</p>
+                            <p class="mb-0" style="font-size: 14px; color: #475569; font-weight: 500;">181</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-3">
